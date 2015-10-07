@@ -11,7 +11,7 @@ NWebsec - Security libraries for ASP.NET
    :titlesonly:
    :hidden:
 
-   nwebsec/getting-started
+   Getting started <nwebsec/getting-started>
    nwebsec/libraries
 
 
