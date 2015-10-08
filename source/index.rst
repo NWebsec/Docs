@@ -15,6 +15,7 @@ NWebsec - Security libraries for ASP.NET
    nwebsec/libraries
    nwebsec/Configuration
    nwebsec/Breaking-changes
+   nwebsec/NWebsec-and-the-SDL
 
 
 NWebsec consists of several security libraries for ASP.NET applications. Consult the [[Documentation]] to see how it works.
