@@ -19,7 +19,7 @@ You'll notice that not all features from the :doc:`NWebsec` library are availabl
 ************
 Dependencies
 ************
-NWebsec.Owin depends on the [OWIN NuGet package](http://www.nuget.org/packages/Owin/) and the OWIN IAppBuilder startup interface defined there. It does not have any [Katana](http://www.asp.net/aspnet/overview/owin-and-katana) (MSFTs OWIN libraries) dependencies. The idea is to be able to support other OWIN host implementations as they become available.
+NWebsec.Owin depends on the `OWIN NuGet package <http://www.nuget.org/packages/Owin/>`_ and the OWIN IAppBuilder startup interface defined there. It does not have any `Katana <http://www.asp.net/aspnet/overview/owin-and-katana>`_ (MSFTs OWIN libraries) dependencies. The idea is to be able to support other OWIN host implementations as they become available.
 
 Note that the middleware has been developed and tested under Katana.
 

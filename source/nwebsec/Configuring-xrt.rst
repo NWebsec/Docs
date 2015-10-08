@@ -10,7 +10,7 @@ You might be familiar with the Robots Exclusion Protocol (REP), often communicat
 
 REP gives some control over which content search engines will index on your site, i.e. for search engines who respect REP. Remember, you are politely asking search engines to not index your content — but not all search engines are that polite.
 
-In addition to [robots.txt](http://www.robotstxt.org/) and meta tags, some of the major search engines support REP through an HTTP header. The following header is the equivalent to the aforementioned meta tag:
+In addition to `robots.txt <http://www.robotstxt.org/>`_ and meta tags, some of the major search engines support REP through an HTTP header. The following header is the equivalent to the aforementioned meta tag:
 
 ..
 
@@ -18,8 +18,8 @@ In addition to [robots.txt](http://www.robotstxt.org/) and meta tags, some of th
 
 Using the HTTP header can be a nice alternative to the robots.txt and the meta tags — especially for content other than html such as PDF, XML or Office files. The header is supported by Bing and Google, refer to these two resources for the nitty gritty details:
 
-* [Prevent a bot from getting "lost in space"](http://www.bing.com/community/site_blogs/b/webmaster/archive/2009/08/21/prevent-a-bot-from-getting-lost-in-space-sem-101.aspx)
-* [Robots meta tag and X-Robots-Tag HTTP header specifications](https://developers.google.com/webmasters/control-crawl-index/docs/robots_meta_tag)
+* `Prevent a bot from getting "lost in space" <http://www.bing.com/community/site_blogs/b/webmaster/archive/2009/08/21/prevent-a-bot-from-getting-lost-in-space-sem-101.aspx>`_
+* `Robots meta tag and X-Robots-Tag HTTP header specifications <https://developers.google.com/webmasters/control-crawl-index/docs/robots_meta_tag>`_
 
 NWebsec lets you emit the X-Robots-Tag header as of version 2.1.0.  The directives supported are:
 

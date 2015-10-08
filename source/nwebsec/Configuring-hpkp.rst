@@ -4,7 +4,7 @@ Configuring Public-Key-Pins
 
 There are four configuration options, as well as a list of certs to pin and/or a list of pin values. Note that you must supply two pins to generate a valid header, i.e. two certs, a cert and a pin value, or two pin values.
 
-* **max-age** is a ``TimeSpan`` (see [TimeSpan.Parse](http://msdn.microsoft.com/en-us/library/se73z7b9.aspx))
+* **max-age** is a ``TimeSpan`` (see `TimeSpan.Parse <http://msdn.microsoft.com/en-us/library/se73z7b9.aspx>`_)
 * **includeSubdomains** adds *includeSubDomains* in the header, defaults to *false*
 * **httpsOnly** ensures that the HSTS header is set over secure connections only, defaults to *true*. 
 * **reportUri** specifies an absolute URI to where the browser can report HPKP violations. The scheme must be HTTP or HTTPS. 

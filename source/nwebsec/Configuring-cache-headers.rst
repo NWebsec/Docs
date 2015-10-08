@@ -8,7 +8,7 @@ In short the browser can behave in two ways when it comes to caching. It could a
 
 Also, the browser can serve previously loaded pages directly from cache — without checking with the server whether the page has changed. This is a common behaviour when the user is navigating back and forth with the "Back" and "Forward" buttons in the browser.
 
-You can read an excellent write-up on the issues related to browser cache and history on Opera's Yngve Pettersen's blog: [Introducing Cache Contexts, or: Why the browser does not know you are logged out](http://my.opera.com/yngve/blog/2007/02/27/introducing-cache-contexts-or-why-the).
+You can read an excellent write-up on the issues related to browser cache and history on Opera's Yngve Pettersen's blog: `Introducing Cache Contexts, or: Why the browser does not know you are logged out <http://my.opera.com/yngve/blog/2007/02/27/introducing-cache-contexts-or-why-the>`_.
 
 To instruct the browser to reload pages when the user is navigating with the back and forward buttons you can configure NWebsec to set the following headers: 
 
@@ -42,7 +42,7 @@ In web.config:
 
 .. 	note::
 
-	Enabling the no cache headers in config is a point of no return, as of NWebsec 3.0.0. This is by design after the PreSendRequestHeaders event was [deprecated by MSFT](http://www.asp.net/aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet,-and-what-to-do-instead#presend). If you want to enable these headers globally for your app but make exceptions for some of your controllers/actions, use a global MVC filter instead, as per the following example.
+	Enabling the no cache headers in config is a point of no return, as of NWebsec 3.0.0. This is by design after the PreSendRequestHeaders event was `deprecated by MSFT <http://www.asp.net/aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet,-and-what-to-do-instead#presend>`_. If you want to enable these headers globally for your app but make exceptions for some of your controllers/actions, use a global MVC filter instead, as per the following example.
 
 
 Or as an MVC filter:

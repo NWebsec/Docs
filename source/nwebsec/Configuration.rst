@@ -67,7 +67,7 @@ Only the most basic configuration is added to web.config when installing the NWe
 
 The NWebsec config section is declared, the module is loaded, custom http headers will be cleared, the NWebsec configuration directory is declared as a hidden segment, and an empty NWebsec configuration section is added.
 
-You'll probably notice that configuration is also added to the `<system.webserver>` section in order to load the NWebsec _httpHeaderModule_ . If you're running on IIS 6 or in Classic Pipeline Mode you will have to do some manual changes to your web.config to load the module, see [IIS 6 or IIS 7 Classic Pipeline Mode
+You'll probably notice that configuration is also added to the `<system.webserver>` section in order to load the NWebsec *httpHeaderModule* . If you're running on IIS 6 or in Classic Pipeline Mode you will have to do some manual changes to your web.config to load the module, see [IIS 6 or IIS 7 Classic Pipeline Mode
 ](#iis-6-or-iis-7-classic-pipeline-mode).
 
 The configuration schema gives you intellisense for all NWebsec configuration elements, so feel free to start of with the empty section and add the security headers you need.
@@ -155,7 +155,7 @@ For the curious, here's a complete configuration section with all headers disabl
 IIS 6 or IIS 7 Classic Pipeline Mode
 ************************************
 
-If your application is running in Classic Pipeline Mode (as opposed to [Integrated Pipeline Mode](http://learn.iis.net/page.aspx/243/aspnet-integration-with-iis/)), you'll have to add configuration by hand to load the HttpHeaderModule, here's an example:
+If your application is running in Classic Pipeline Mode (as opposed to `Integrated Pipeline Mode <http://learn.iis.net/page.aspx/243/aspnet-integration-with-iis/>`_), you'll have to add configuration by hand to load the HttpHeaderModule, here's an example:
 
 ..  code-block:: xml
 

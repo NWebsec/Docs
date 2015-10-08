@@ -2,7 +2,7 @@
 NWebsec and the SDL
 ###################
 
-You might be familiar with Microsoft's [Security Development Lifecycle](http://microsoft.com/sdl) (SDL)  — a software security assurance process. The SDL is how Microsoft ensures that security is taken care of throughout their development processes. It's broken down in sections for different development phases and each section contains requirements and recommendations to ensure both security and privacy in their software. They've published the process guidance to aid others in introducing security activities in their own development processes. 
+You might be familiar with Microsoft's `Security Development Lifecycle <http://microsoft.com/sdl>`_ (SDL)  — a software security assurance process. The SDL is how Microsoft ensures that security is taken care of throughout their development processes. It's broken down in sections for different development phases and each section contains requirements and recommendations to ensure both security and privacy in their software. They've published the process guidance to aid others in introducing security activities in their own development processes. 
 
 Many of the requirements and recommendations are concrete and actionable — this page lists the SDL requirements that NWebsec will help you fulfill (the others you'll have to take care of yourself #kthxbai :).
 
@@ -38,7 +38,7 @@ The X-Content-Type-Options header
 
 From *Phase Three Implementation. Security Requirements:*
 
-	Internet Explorer 8 MIME handling: Sniffing OPT-OUT. This recommendation addresses functionality new in Internet Explorer 8 that may have security implications in some cases. It is recommended that for each HTTP response that could contain user controllable content, you utilize the HTTP Header X-Content-Type-Options:nosniff. The [Watcher tool](http://websecuritytool.codeplex.com/) may be of use in meeting this requirement.
+	Internet Explorer 8 MIME handling: Sniffing OPT-OUT. This recommendation addresses functionality new in Internet Explorer 8 that may have security implications in some cases. It is recommended that for each HTTP response that could contain user controllable content, you utilize the HTTP Header X-Content-Type-Options:nosniff. The `Watcher tool <http://websecuritytool.codeplex.com/>`_ may be of use in meeting this requirement.
 
 See :doc:`Configuring-cto` to let NWebsec add this header for you.
 
@@ -50,7 +50,7 @@ From *Phase Three Implementation. Security Recommendations:*
 
 	Do not use the JavaScript eval() function (or equivalents). The JavaScript eval() function is used to interpret a string as executable code. While eval() enables a web application to dynamically generate and execute JavaScript (including JSON), it also opens up potential security holes, such as injection attacks, where an attacker-fed string may also get executed. For this reason, the eval() function or functional equivalents, such as setTimeout() and setInterval(), should not be used.
 
-See :doc:`Configuring-csp` to let NWebsec add this header for you — CSP will disable all these JavaScript functions (see the *script-src* directive in section 4.2 of the [CSP specification](http://www.w3.org/TR/CSP/#script-src)).
+See :doc:`Configuring-csp` to let NWebsec add this header for you — CSP will disable all these JavaScript functions (see the *script-src* directive in section 4.2 of the `CSP specification <http://www.w3.org/TR/CSP/#script-src>`_).
 
 **************************
 The X-Frame-Options header

@@ -2,7 +2,7 @@
 Redirect validation
 ###################
 
-If you're familiar with the [OWASP top ten list](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project) you'll know that *Unvalidated Redirects and Forwards* has been lingering as number ten on that list the last couple of years. These types of vulnerabilities are used in real attacks but fortunately there are several ways to deal with them. You'll find a nice write-up on the issues and potential countermeasures here: [OWASP Top 10 for .NET developers part 10: Unvalidated Redirects and Forwards](http://www.troyhunt.com/2011/12/owasp-top-10-for-net-developers-part-10.html).
+If you're familiar with the `OWASP top ten list <https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project>`_ you'll know that *Unvalidated Redirects and Forwards* has been lingering as number ten on that list the last couple of years. These types of vulnerabilities are used in real attacks but fortunately there are several ways to deal with them. You'll find a nice write-up on the issues and potential countermeasures here: `OWASP Top 10 for .NET developers part 10: Unvalidated Redirects and Forwards <http://www.troyhunt.com/2011/12/owasp-top-10-for-net-developers-part-10.html>`_.
 
 The proper remedy for unvalidated redirects lie in the code. Whenever an application redirects the user based on input parameters, that input should be validated. As we all know, developers slip once in a while. Legacy applications can also pose a challenge, with code written during a time where security might not have been a priority. Having a "safety net" to help detect and fix such vulnerabilities makes it easier to keep the code base secure.
 

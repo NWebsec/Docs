@@ -1,4 +1,4 @@
-The NWebsec HttpHeaderModule controls which headers are sent in the response from and ASP.NET application. Since it's an HttpModule it works for both Web Forms application and MVC applications as it hooks into the [ASP.NET/IIS pipeline](http://msdn.microsoft.com/en-us/library/bb470252.aspx). There, it makes changes to the HTTP header collection according to the NWebsec configuration.
+The NWebsec HttpHeaderModule controls which headers are sent in the response from and ASP.NET application. Since it's an HttpModule it works for both Web Forms application and MVC applications as it hooks into the `ASP.NET/IIS pipeline <http://msdn.microsoft.com/en-us/library/bb470252.aspx>`_. There, it makes changes to the HTTP header collection according to the NWebsec configuration.
 
 The HttpHeaderModule supports the following security headers (See [[Configuration]] for the actual web.config):
 

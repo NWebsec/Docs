@@ -6,9 +6,9 @@ Consult :doc:`Breaking-changes` if you're upgrading to the NWebsec 4.x packages.
 
 Content-Security-Policy (CSP) provides a safety net for injection attacks by specifying a whitelist from where various content in a webpage can be loaded from.
 
-If you're unfamiliar with CSP you should read [An Introduction to Content Security Policy](http://www.html5rocks.com/en/tutorials/security/content-security-policy/) by Mike West, one of the Chrome developers. You'll also find information about CSP on the [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Security/CSP).
+If you're unfamiliar with CSP you should read `An Introduction to Content Security Policy <http://www.html5rocks.com/en/tutorials/security/content-security-policy/>`_ by Mike West, one of the Chrome developers. You'll also find information about CSP on the `Mozilla Developer Network <https://developer.mozilla.org/en-US/docs/Security/CSP>`_.
  
-At the time of writing, CSP 1.0 is supported by most major browsers (Opera/Chrome/Firefox/Safari). Internet Explorer CSP support is lacking for now, but they're [working on it](https://status.modern.ie/contentsecuritypolicy?term=content).
+At the time of writing, CSP 1.0 is supported by most major browsers (Opera/Chrome/Firefox/Safari). Internet Explorer CSP support is lacking for now, but they're `working on it <https://status.modern.ie/contentsecuritypolicy?term=content>`_.
 
 Chrome and Firefox have partial support for CSP Level 2.
 
@@ -28,7 +28,7 @@ You should read this entire article to understand how CSP configuration is inher
 CSP configuration
 *****************
 
-NWebsec emits the CSP header if CSP is enabled and one or more directives are configured — except for redirects and static content. The directives specified in [CSP 1.0](http://www.w3.org/TR/CSP/) are:
+NWebsec emits the CSP header if CSP is enabled and one or more directives are configured — except for redirects and static content. The directives specified in `CSP 1.0 <http://www.w3.org/TR/CSP/>`_ are:
 
 * default-src — Specifies the default for other sources
 * script-src
@@ -42,7 +42,7 @@ NWebsec emits the CSP header if CSP is enabled and one or more directives are co
 * sandbox (optional to implement)
 * report-uri — Specifies where CSP violations can be reported
 
-[CSP level 2](http://www.w3.org/TR/CSP2/) adds quite a few new directives over these, currently supported by NWebsec are:
+`CSP level 2 <http://www.w3.org/TR/CSP2/>`_ adds quite a few new directives over these, currently supported by NWebsec are:
 
 * frame-ancestors
 * base-uri
@@ -50,7 +50,7 @@ NWebsec emits the CSP header if CSP is enabled and one or more directives are co
 * form-action
 * sandbox (no longer optional)
 
-CSP 2 also introduces script and style hashes and nonces. You'll find a good write-up on this on the [Mozilla blog](https://blog.mozilla.org/security/2014/10/04/csp-for-the-web-we-have/). NWebsec supports script and style nonces as of version 3.2.0.
+CSP 2 also introduces script and style hashes and nonces. You'll find a good write-up on this on the `Mozilla blog <https://blog.mozilla.org/security/2014/10/04/csp-for-the-web-we-have/>`_. NWebsec supports script and style nonces as of version 3.2.0.
 
 To use a directive, it must be configured with at least one source. The standard specifies some special sources.
 
@@ -72,7 +72,7 @@ You can also specify your own sources, in various formats specified by the [url:
 
 * \* — Allow content from anywhere
 * https: — Scheme only, load only content served over https
-* *.nwebsec.com — Wildcard host, allow content from any nwebsec.com sub-domain.
+* \*.nwebsec.com — Wildcard host, allow content from any nwebsec.com sub-domain.
 * www.nwebsec.com:81 — You can specify a port number
 * https://www.nwebsec.com — You can of specify an absolute URI for a host (path has no effect though)
 
@@ -83,7 +83,7 @@ CSP 2 specifies support for internationalized domain names in custom sources.
 The built-in report handler
 ===========================
 
-If you configure the report-uri directive, the browser will report CSP violations to that URI (as JSON). The CSP standard includes an example of a [CSP violation report](http://www.w3.org/TR/CSP/#sample-violation-report). There are two things that make it a bit cumbersome to deal with these reports.
+If you configure the report-uri directive, the browser will report CSP violations to that URI (as JSON). The CSP standard includes an example of a `CSP violation report <http://www.w3.org/TR/CSP/#sample-violation-report>`_. There are two things that make it a bit cumbersome to deal with these reports.
 
 * The report-uri must be a relative URI, so you might have to include a report handler in every one of your applications (unless they're running on the same domain).
 * The browser submits the violation report without session cookies. That means you need to poke a hole in your authorization rules to get the requests through.
@@ -253,20 +253,21 @@ And consider the following controller:
             return View("Index");
         }
     }
+
 The index action will inherit the global attribute as well as the attribute set on the controller, which yields this header:
 
-..  
+::  
 
   Content-Security-Policy: default-src 'self'; script-src 'self' scripts.nwebsec.codeplex.com
 
 The index2 action inherits previous directives yielding:
 
-..
+::
 
   Content-Security-Policy: default-src 'self' nwebsec.codeplex.com; script-src 'self' scripts.nwebsec.codeplex.com
 
 The index3 action also inherits all directives, thus giving us this header:
-..
+::
 
   Content-Security-Policy: default-src 'self' stuff.nwebsec.codeplex.com; script-src 'self' scripts.nwebsec.codeplex.com scripts.nwebsec.com ajax.googleapis.com
 

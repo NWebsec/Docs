@@ -22,4 +22,4 @@ Check the [[Breaking changes]] if you're upgrading to a new major version.
 
 [[NWebsec.SessionSecurity]] improves ASP.NET session security with authenticated session identifiers.
 
-[NWebsec.AzureStartupTasks](https://github.com/NWebsec/NWebsec.AzureStartupTasks/wiki) includes an Azure startup task to harden TLS configuration on Azure web role instances.
+`NWebsec.AzureStartupTasks <https://github.com/NWebsec/NWebsec.AzureStartupTasks/wiki>`_ includes an Azure startup task to harden TLS configuration on Azure web role instances.
