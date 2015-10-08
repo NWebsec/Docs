@@ -1,5 +1,15 @@
 NWebsec libraries
 =================
+
+.. toctree::
+   :maxdepth: 2
+   :titlesonly:
+   :hidden:
+
+   NWebsec
+   NWebsec.Owin
+   NWebsec.Mvc
+
 NWebsec is made up of several libraries available, each with their own documentation.
 
 Check the [[Breaking changes]] if you're upgrading to a new major version.

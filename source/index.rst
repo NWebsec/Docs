@@ -13,6 +13,8 @@ NWebsec - Security libraries for ASP.NET
 
    Getting started <nwebsec/getting-started>
    nwebsec/libraries
+   nwebsec/Configuration
+   nwebsec/Breaking-changes
 
 
 NWebsec consists of several security libraries for ASP.NET applications. Consult the [[Documentation]] to see how it works.

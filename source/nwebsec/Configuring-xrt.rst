@@ -1,13 +1,20 @@
+########################
+Configuring X-Robots-Tag
+########################
+
 You might be familiar with the Robots Exclusion Protocol (REP), often communicated by a robots.txt file on the root of a site or through meta tags in HTML such as:
 
-
-><meta name="robots" content="noindex, nofollow">
+..  code-block:: html
+    
+    <meta name="robots" content="noindex, nofollow">
 
 REP gives some control over which content search engines will index on your site, i.e. for search engines who respect REP. Remember, you are politely asking search engines to not index your content — but not all search engines are that polite.
 
 In addition to [robots.txt](http://www.robotstxt.org/) and meta tags, some of the major search engines support REP through an HTTP header. The following header is the equivalent to the aforementioned meta tag:
 
->X-Robots-Tag: noindex, nofollow
+..
+
+  X-Robots-Tag: noindex, nofollow
 
 Using the HTTP header can be a nice alternative to the robots.txt and the meta tags — especially for content other than html such as PDF, XML or Office files. The header is supported by Bing and Google, refer to these two resources for the nitty gritty details:
 
@@ -26,41 +33,41 @@ NWebsec lets you emit the X-Robots-Tag header as of version 2.1.0.  The directiv
 
 There are several ways to enable the X-Robots-Tag header:
 
-For [[NWebsec]] you can enable it in web.config (_enabled_ and at least one directive must be true):
+With :doc:`NWebsec` you can enable it in web.config (*enabled* and at least one directive must be true):
 
-```xml
-<nwebsec>
-    <httpHeaderSecurityModule>
-        <x-Robots-Tag enabled="true"
-                       noIndex="true"
-                       noFollow="false"
-                       noArchive="false"
-                       noOdp="false"
-                       noSnippet="false"
-                       noImageIndex="false"
-                       noTranslate="false"/>
-    </httpHeaderSecurityModule>
-</nwebsec>
-```
+..  code-block:: xml
+    
+    <nwebsec>
+        <httpHeaderSecurityModule>
+            <x-Robots-Tag enabled="true"
+                           noIndex="true"
+                           noFollow="false"
+                           noArchive="false"
+                           noOdp="false"
+                           noSnippet="false"
+                           noImageIndex="false"
+                           noTranslate="false"/>
+        </httpHeaderSecurityModule>
+    </nwebsec>
 
-For [[NWebsec.Owin]], you register the middleware in the OWIN startup class:
+With :doc:`NWebsec.Owin`, you register the middleware in the OWIN startup class:
 
-```c#
-using NWebsec.Owin;
-...
-public void Configuration(IAppBuilder app)
-{
-    app.UseXRobotsTag(options => options.NoIndex().NoFollow());
-}
-```
+..  code-block:: c#
+    
+    using NWebsec.Owin;
+    ...
+    public void Configuration(IAppBuilder app)
+    {
+        app.UseXRobotsTag(options => options.NoIndex().NoFollow());
+    }
 
-[[NWebsec.Mvc]] lets you register an MVC filter:
+:doc:`NWebsec.Mvc` lets you register an MVC filter:
 
-```c#
-public static void RegisterGlobalFilters(GlobalFilterCollection filters)
-{
-    filters.Add(new XRobotsTagAttribute() { NoIndex = true, NoFollow = true });
-}
-```
+..  code-block:: c#
 
-You can also set the attribute on controllers and actions, see [[NWebsec.Mvc]] for details.
+    public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+    {
+        filters.Add(new XRobotsTagAttribute() { NoIndex = true, NoFollow = true });
+    }
+
+You can also set the attribute on controllers and actions, see :doc:`NWebsec.Mvc` for details.

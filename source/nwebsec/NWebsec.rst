@@ -1,3 +1,7 @@
+#######
+NWebsec
+#######
+
 NWebsec currently consists of a [[HttpHeaderModule]] that lets you manage HTTP headers. It can remove version headers, as well as output various security HTTP headers.
 
 * See [[Getting started]] if you're the impatient type.
@@ -10,7 +14,10 @@ NWebsec currently consists of a [[HttpHeaderModule]] that lets you manage HTTP h
 * See [[Configuring Content Security Policy]] to learn more about the Content Security Policy header.
 * See [[NWebsec.Mvc]] to discover how you can configure security headers for your MVC application through the NWebsec MVC attributes.
 
-# Security headers
+****************
+Security headers
+****************
+
 Supported security headers are:
 
 * X-Frame-Options
