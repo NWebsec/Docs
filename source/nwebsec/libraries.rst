@@ -10,16 +10,20 @@ NWebsec libraries
    NWebsec.Owin
    NWebsec.Mvc
 
-NWebsec is made up of several libraries available, each with their own documentation.
+NWebsec is made up of several libraries, each offering different approaches to improve the security of your web applications.
 
-Check the [[Breaking changes]] if you're upgrading to a new major version.
+*******
+NWebsec
+*******
+:doc:`NWebsec` lets you add security headers and other features to your applications through an HTTP module that is loaded and configured through web.config. This makes it fairly easy to improve the security of legacy apps, as it requires no changes to code.
 
-[[NWebsec]] lets you manage HTTP headers. It can remove version headers, as well as output various security HTTP headers.
+************
+NWebsec.Owin
+************
+:doc:`NWebsec.Owin` offers OWIN middleware for many of NWebsec's features.
 
-[[NWebsec.Mvc]] lets you manage HTTP security headers through MVC attributes.
+***********
+NWebsec.Mvc
+***********
+:doc:`NWebsec.Mvc` configures NWebsec through MVC attributes. This is useful when you need to do adjustments to the application wide config from NWebsec/NWebsec.Owin, for particular controllers or actions. Some developers prefer to minimize their web.config, and configure most things through code. They can use the NWebsec.Mvc attributes as an alternative to web.config for most features.
 
-[[NWebsec.Owin]] lets you manage HTTP security headers through OWIN middleware.
-
-[[NWebsec.SessionSecurity]] improves ASP.NET session security with authenticated session identifiers.
-
-`NWebsec.AzureStartupTasks <https://github.com/NWebsec/NWebsec.AzureStartupTasks/wiki>`_ includes an Azure startup task to harden TLS configuration on Azure web role instances.
