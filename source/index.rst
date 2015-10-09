@@ -18,25 +18,22 @@ NWebsec - Security libraries for ASP.NET
    nwebsec/NWebsec-and-the-SDL
 
 
-NWebsec consists of several security libraries for ASP.NET applications. Consult the [[Documentation]] to see how it works.
+NWebsec consists of several security libraries for ASP.NET applications. Three of these libraries work together to remove version headers, control cache headers, stop potentially dangerous redirects, and set important security headers. They are collectively referred to as "NWebsec":
 
-You'll find the NWebsec packages on NuGet:
+* `NWebsec <https://nuget.org/packages/NWebsec/>`_
+* `NWebsec.Mvc <https://nuget.org/packages/NWebsec.Mvc/>`_
+* `NWebsec.Owin <https://nuget.org/packages/NWebsec.Owin/>`_
 
-* https://nuget.org/packages/NWebsec/
-* https://nuget.org/packages/NWebsec.Mvc/
-* https://nuget.org/packages/NWebsec.Owin/
-* https://nuget.org/packages/NWebsec.SessionSecurity/
-* https://nuget.org/packages/NWebsec.AzureStartupTasks/
+If you're not sure what "security headers" are, check out this blog post: `Security through HTTP response headers <http://www.dotnetnoob.com/2012/09/security-through-http-response-headers.html>`_.
 
-NWebsec/NWebsec.Mvc lets you remove version headers, control cache headers, stop potentially dangerous redirects, and set important security headers. If you're not sure what "security headers" are, check out this blog post: `Security through HTTP response headers <http://www.dotnetnoob.com/2012/09/security-through-http-response-headers.html>`_.
+There are also two stand-alone libraries. Since they don't follow the versions of the security header libraries, they are documented as separate projects. 
 
-NWebsec.Owin provides OWIN middleware to stop potentially dangerous redirects and set important security headers.
+* `NWebsec.SessionSecurity <https://nuget.org/packages/NWebsec.SessionSecurity/>`_ - `docs here <http://docs.nwebsec.com/projects/SessionSecurity/en/latest/>`_.
+* `NWebsec.AzureStartupTasks <https://nuget.org/packages/NWebsec.AzureStartupTasks/>`_ - `docs here <http://docs.nwebsec.com/projects/AzureStartupTasks/en/latest/>`_.
 
 NWebsec.SessionSecurity improves ASP.NET session security. Read more about the improvements in the blog post `Ramping up ASP.NET session security <http://www.dotnetnoob.com/2013/07/ramping-up-aspnet-session-security.html>`_.
 
 `NWebsec.AzureStartupTasks <https://github.com/NWebsec/NWebsec.AzureStartupTasks/wiki>`_ helps you harden the TLS configuration for Azure web role instances. Learn why you need to harden the default TLS configuration in the blog post `Hardening Windows Server 2008/2012 and Azure SSL/TLS configuration <http://www.dotnetnoob.com/2013/10/hardening-windows-server-20082012-and.html>`_.
-
-Did you now that the SDL requires countermeasures against session fixation attacks, and that certain security headers must set by your web application? No? See [[NWebsec and the SDL]] to learn more.
 
 Check out the `NWebsec demo site <http://www.nwebsec.com/>`_ to see the headers and session security improvements in action.
 

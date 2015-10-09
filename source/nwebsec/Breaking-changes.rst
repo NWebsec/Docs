@@ -21,7 +21,7 @@ Removed/moved all types from the **NWebsec.Csp** namespace
 
 Consequently, the following using statement will trigger a compilation error: 
 
-.. 	code-block::
+.. 	code-block:: c#
 
 	using NWebsec.Csp;
 
@@ -32,14 +32,14 @@ CSP attribute source configuration.
 
 With NWebsec.Mvc versions < 4 you would configure CSP sources with an enum. This made the code unnecessarily hard to read.
 
-.. 	code-block::
+.. 	code-block:: c#
 
 	[CspDefaultSrc(Self = Source.Enable)]
 	[CspDefaultSrc(Self = Source.Disable)]
 
 As of version four you configure them with a boolean. This makes makes the code easier to read.
 
-.. 	code-block::
+.. 	code-block:: c#
 
 	[CspDefaultSrc(Self = true)]
 	[CspDefaultSrc(Self = false)]
@@ -61,7 +61,7 @@ To enable it for all responses you must set the httpsOnly attribute to false in 
 
 Or you specify that it should be included in all responses for the OWIN middleware:
 
-..	code-block::
+..	code-block:: c#
 
 	app.UseHsts(options => options.MaxAge(days:18*7).AllResponses());
 
@@ -69,4 +69,4 @@ Or you specify that it should be included in all responses for the OWIN middlewa
 NWebsec 3.x
 ***********
 
-The  `<suppressVersionHttpHeaders>`  configuration setting is no longer supported.
+The  ``<suppressVersionHttpHeaders>``  configuration setting is no longer supported.

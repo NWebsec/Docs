@@ -16,7 +16,7 @@ For non-MVC apps use the following:
 
     Install-Package NWebsec
 
-Alternatively, you can get the latest version of the assemblies under `releases <https://github.com/NWebsec/NWebsec/releases>`_ if you want to add them by hand. In that case, refer to [[Configuration]] to also edit the configuration by hand. 
+Alternatively, you can get the latest version of the assemblies under `releases <https://github.com/NWebsec/NWebsec/releases>`_ if you want to add them by hand. In that case, refer to :doc:`Configuration` to also edit the configuration by hand. 
 
 Now it's time to start securing your application! It's good practice to remove the version headers added by ASP.NET and IIS, so you'd want to *suppress version headers* for your web application. The NuGet installation procedure will make some modifications to the web.config to disable version headers.
 
@@ -24,7 +24,7 @@ To avoid various attacks carried out through iframes, the *X-Frame-Options heade
 
 For applications that run over SSL/TLS, you should most definitely employ the *Strict-Transport-Security header* — instructing the browser to interact with anything on your domain over a secured connection only.
 
-Unless your application needs to redirect users to arbitrary sites on the internet, you'd want *redirect validation* enabled. There might be a few sites you'd want to whitelist for redirects, in particular if you use WIF or Google/Facebook/any other external authentication provider. Consult the [[Configuration]] docs if you run into trouble.
+Unless your application needs to redirect users to arbitrary sites on the internet, you'd want *redirect validation* enabled. There might be a few sites you'd want to whitelist for redirects, in particular if you use WIF or Google/Facebook/any other external authentication provider. Consult :doc:`Redirect-validation` if you run into trouble.
 
 So, for an application running over http the following is a reasonable starting point for your web.config:
 
@@ -70,6 +70,6 @@ NWebsec lets you add other security headers as well, but these are more tightly 
 * `Using Content Security Policy to Prevent Cross-Site Scripting (XSS) <http://blog.sendsafely.com/post/42277333593/using-content-security-policy-to-prevent-cross-site>`_
 * `Retrofitting Code for Content Security Policy <http://blog.sendsafely.com/post/50303516209/retrofitting-code-for-content-security-policy>`_
 
-See [[Configuring Content Security Policy]] to learn how to enable CSP, this is where the real job starts. Good luck! :)
+See :doc:`Configuring-csp` to learn how to enable CSP, this is where the real job starts. Good luck! :)
 
-Note also that security headers can be enabled through MVC attributes, refer to [[NWebsec.Mvc]] for details.
+Note also that security headers can be enabled through MVC attributes, refer to :doc:`NWebsec.Mvc` for details.

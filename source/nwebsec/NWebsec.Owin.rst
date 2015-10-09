@@ -27,4 +27,4 @@ Note that the middleware has been developed and tested under Katana.
 Documentation
 *************
 
-The middleware is documented alongside the web.config and MVC attributes. Refer to the [[NWebsec]] documentation for samples.
+The middleware is documented alongside the web.config and MVC attributes. Refer to the :doc:`Configuration` for samples.

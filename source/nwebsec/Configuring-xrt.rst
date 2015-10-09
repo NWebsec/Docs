@@ -12,7 +12,7 @@ REP gives some control over which content search engines will index on your site
 
 In addition to `robots.txt <http://www.robotstxt.org/>`_ and meta tags, some of the major search engines support REP through an HTTP header. The following header is the equivalent to the aforementioned meta tag:
 
-..
+::
 
   X-Robots-Tag: noindex, nofollow
 

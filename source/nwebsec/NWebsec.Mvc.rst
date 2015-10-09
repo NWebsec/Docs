@@ -2,9 +2,9 @@
 NWebsec.Mvc
 ###########
 
-NWebsec.Mvc lets you configure the [[HttpHeaderModule]] through MVC ActionFilter attributes. MVC 3 or newer is supported. By decorating controllers and actions with attributes, the HttpHeaderModule's [[Configuration]] is overridden. This is how it works:
+NWebsec.Mvc lets you configure NWebsec through MVC ActionFilter attributes. MVC 3 or newer is supported. By decorating controllers and actions with attributes, the :doc:`NWebsec` configuration is overridden. This is how it works:
 
-NWebsec.Mvc depends on the NWebsec package, which includes the HttpHeaderModule. This module relies on its [[Configuration]], if there is any. Now, the attributes in NWebsec.Mvc lets you override the HttpHeaderModule's configuration, here's the order in which the final configuration is calculated:
+NWebsec.Mvc depends on the NWebsec package, which includes the HttpHeaderModule. This module relies on its :doc:`Configuration`, if there is any. Now, the attributes in NWebsec.Mvc lets you override the HttpHeaderModule's configuration, here's the order in which the final configuration is calculated:
 
 #. Web.config
 #. MVC global filter
@@ -17,9 +17,7 @@ This gives a fair amount of flexibility. Do your stuff in config or in MVC, or b
 The attributes
 **************
 
-Most elements from the [[Configuration]] have an MVC attribute counterpart, see [[Configuring security headers]] to learn what their settings are.
-
-The Content Security Policy attributes are a bit special, see [[Configuring Content Security Policy]] for details. 
+Most elements from the :doc:`Configuration` have an MVC attribute counterpart.
 
 Now back to the attributes — they are probably best explained in code. Here are the attributes registered as global filters in Global.asax in a typical MVC app:
 

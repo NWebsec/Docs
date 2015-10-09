@@ -2,17 +2,11 @@
 NWebsec
 #######
 
-NWebsec currently consists of a [[HttpHeaderModule]] that lets you manage HTTP headers. It can remove version headers, as well as output various security HTTP headers.
+NWebsec provides an `HTTP Module <https://msdn.microsoft.com/library/ms178468.aspx>`_ that controls which headers are sent in the response from an ASP.NET application. The HTTP Module works for both Web Forms application and MVC applications as it hooks into the `ASP.NET/IIS pipeline <http://msdn.microsoft.com/en-us/library/bb470252.aspx>`_. There, it makes changes to the HTTP header collection according to the NWebsec configuration.
 
-* See [[Getting started]] if you're the impatient type.
-* See [[Configuration]] to study NWebsec's configuration section.
-* See [[Configuring cache headers]] to set secure cache headers.
-* See [[Suppressing version headers]] to figure out how you can get rid of version headers.
-* See [[Redirect validation]] to avoid unvalidated redirect vulnerabilities.
-* See [[Configuring X-Robots-Tag]] to learn how to use the Robots Exclusion Protocol (REP) through HTTP headers.
-* See [[Configuring security headers]] for a detailed explanation on how to configure each security header.
-* See [[Configuring Content Security Policy]] to learn more about the Content Security Policy header.
-* See [[NWebsec.Mvc]] to discover how you can configure security headers for your MVC application through the NWebsec MVC attributes.
+The Http Module lets you set common security headers without any code changes, it is loaded and configured strictly through web.config.  This is a quick win for the security of ASP.NET applications. Security of legacy applications can be improved quite easily as well. The flexibility of the configuration means that various parts of an application can run with different configurations.
+
+The NWebsec library is a "configuration only" install, it requires no code changes to your application. You'll find it on `NuGet <http://www.nuget.org/packages/NWebsec/>`_, or you can download the assemblies from the `GitHub releases <https://github.com/NWebsec/NWebsec/releases>`_. See :doc:`Configuration` to learn how to configure it.
 
 ****************
 Security headers
@@ -20,10 +14,10 @@ Security headers
 
 Supported security headers are:
 
-* X-Frame-Options
+* Content-Security-Policy / Content-Security-Policy-Report-Only
 * Strict-Transport-Security
+* Public-Key-Pins / Public-Key-Pins-Report-Only
+* X-Frame-Options
+* X-XSS-Protection
 * X-Content-Type-Options
 * X-Download-Options
-* X-XSS-Protection
-* Content-Security-Policy / Content-Security-Policy-Report-Only
-* Public-Key-Pins / Public-Key-Pins-Report-Only

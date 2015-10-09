@@ -11,7 +11,10 @@ There are four configuration options, as well as a list of certs to pin and/or a
 * **certificates** specifies a list of certificates (by thumbprints) that should be pinned. 
 * **pins** specifies a list of pinning values for certificates that should be pinned
 
-The following examples assume that we supply the pinning values: n3dNcH43TClpDuyYl55EwbTTAuj4T7IloK4GNaH1bnE= and d6qzRu9zOECb90Uez27xWltNsj0e1Md7GkYYkVoZWmM=
+The following examples assume that we supply the pinning values: 
+
+* n3dNcH43TClpDuyYl55EwbTTAuj4T7IloK4GNaH1bnE=
+* d6qzRu9zOECb90Uez27xWltNsj0e1Md7GkYYkVoZWmM=
 
 .. |br| raw:: html
 
@@ -23,7 +26,7 @@ Configuration                                                                   
 max-age="00:00:00"                                                                        Public-Key-Pins: max-age=0
 max-age="12:00:00"                                                                        Public-Key-Pins: max-age=43200;pin-sha256="n3dNcH43TClpDuyYl55EwbTTAuj4T7IloK4GNaH1bnE=";pin-sha256="d6qzRu9zOECb90Uez27xWltNsj0e1Md7GkYYkVoZWmM="
 max-age="365" |br| includeSubdomains="true"                                               Public-Key-Pins: max-age=31536000;includeSubdomains;pin-sha256="n3dNcH43TClpDuyYl55EwbTTAuj4T7IloK4GNaH1bnE=";pin-sha256="d6qzRu9zOECb90Uez27xWltNsj0e1Md7GkYYkVoZWmM="
-max-age="365" |br| includeSubdomains="true" |br| report-uri="https://report.nwebsec.com/  Public-Key-Pins: max-age=1;includeSubdomains;pin-sha256="n3dNcH43TClpDuyYl55EwbTTAuj4T7IloK4GNaH1bnE=";pin-sha256="d6qzRu9zOECb90Uez27xWltNsj0e1Md7GkYYkVoZWmM=";report-uri="https://report.nwebsec.com/" |
+max-age="365" |br| includeSubdomains="true" |br| report-uri="https://report.nwebsec.com/  Public-Key-Pins: max-age=31536000;includeSubdomains;pin-sha256="n3dNcH43TClpDuyYl55EwbTTAuj4T7IloK4GNaH1bnE=";pin-sha256="d6qzRu9zOECb90Uez27xWltNsj0e1Md7GkYYkVoZWmM=";report-uri="https://report.nwebsec.com/" |
 ========================================================================================  ==============================================================================
 
 In web.config:

@@ -14,7 +14,8 @@ Chrome and Firefox have partial support for CSP Level 2.
 
 A page's content security policy is set through the following headers:
 
-* **Content-Security-Policy** and **Content-Security-Policy-Report-Only**
+* **Content-Security-Policy**
+* **Content-Security-Policy-Report-Only**
 
 **********************
 CSP support in NWebsec
