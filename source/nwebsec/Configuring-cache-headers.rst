@@ -8,7 +8,7 @@ In short the browser can behave in two ways when it comes to caching. It could a
 
 Also, the browser can serve previously loaded pages directly from cache — without checking with the server whether the page has changed. This is a common behaviour when the user is navigating back and forth with the "Back" and "Forward" buttons in the browser.
 
-You can read an excellent write-up on the issues related to browser cache and history on Opera's Yngve Pettersen's blog: `Introducing Cache Contexts, or: Why the browser does not know you are logged out <http://my.opera.com/yngve/blog/2007/02/27/introducing-cache-contexts-or-why-the>`_.
+You can read an excellent write-up on the issues related to browser cache and history on Opera's Yngve Pettersen's blog: `Introducing Cache Contexts, or: Why the browser does not know you are logged out <https://vivaldi.net/userblogs/entry/introducing-cache-contexts-or-why-the>`_.
 
 To instruct the browser to reload pages when the user is navigating with the back and forward buttons you can configure NWebsec to set the following headers: 
 

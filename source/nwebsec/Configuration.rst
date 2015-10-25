@@ -9,6 +9,7 @@ Configuration
 
    Cache headers <Configuring-cache-headers>
    Redirect validation <Redirect-validation>
+   Referrer policy <Configuring-referrerpolicy>
    Content-Security-Policy <Configuring-csp>
    Strict-Transport-Security <Configuring-hsts>
    Public-Key-Pins <Configuring-hpkp>
