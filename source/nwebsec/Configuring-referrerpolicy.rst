@@ -9,7 +9,7 @@ The Referrer Policy specification is under development at the time of writing, y
 .. note::
 	
 	Initial browser support for referrer policy is through a meta tag. There have been changes to the policy keywords in the spec, which means that some browsers need to "catch up" with the spec.
-	Chrome has full support per October 2015, and Firefox will follow in November. Edge supports the old keywords in the spec and needs to catch up.
+	Chrome and Firefox are up to date per October 2015. Edge supports the old keywords in the spec and needs to catch up.
 
 NWebsec provides an HtmlHelper that lets you generate a meta tag with the referrer policy.
 

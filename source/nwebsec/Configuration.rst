@@ -11,6 +11,7 @@ Configuration
    Redirect validation <Redirect-validation>
    Referrer policy <Configuring-referrerpolicy>
    Content-Security-Policy <Configuring-csp>
+   Upgrade-insecure-requests
    Strict-Transport-Security <Configuring-hsts>
    Public-Key-Pins <Configuring-hpkp>
    X-Frame-Options <Configuring-xfo>
