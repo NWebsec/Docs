@@ -6,7 +6,7 @@ If you're familiar with the `OWASP top ten list <https://www.owasp.org/index.php
 
 The proper remedy for unvalidated redirects lie in the code. Whenever an application redirects the user based on input parameters, that input should be validated. As we all know, developers slip once in a while. Legacy applications can also pose a challenge, with code written during a time where security might not have been a priority. Having a "safety net" to help detect and fix such vulnerabilities makes it easier to keep the code base secure.
 
-Redirect validation is slightly opportunistic as of NWebsec 3.0.0, as it's executed in the HttpApplication.EndRequest Event. In most cases, the redirect validation exception will be thrown before the request headers are sent to the client. However, doing e.g. a ``Response.Flush()`` in a handler will send the headers to the client immediately - before the EndRequest event fires. An exception will be thrown in any case if a non-whitelisted redirect is detected.
+Redirect validation is slightly opportunistic as of NWebsec 3.0.0, as it's executed in the HttpApplication.EndRequest Event. In most cases, the redirect validation exception will be thrown before the response headers are sent to the client. However, doing e.g. a ``Response.Flush()`` in a handler will send the headers to the client immediately - before the EndRequest event fires. An exception will be thrown in any case if a non-whitelisted redirect is detected.
 
 *******************************
 Configuring redirect validation
