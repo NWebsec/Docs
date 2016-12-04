@@ -86,7 +86,7 @@ CSP 2 specifies support for internationalized domain names in custom sources.
 The built-in report handler
 ===========================
 
-If you configure the report-uri directive, the browser will report CSP violations to that URI (as JSON). The CSP standard includes an example of a `CSP violation report <http://www.w3.org/TR/CSP/#sample-violation-report>`_. Note that the browser mighet submit the violation report without cookies when reporting same-origin. You might need to poke a hole in your authorization rules if you rely on authenticaiton cookies present to get the requests through.
+If you configure the report-uri directive, the browser will report CSP violations to that URI (as JSON). The CSP standard includes an example of a `CSP violation report <http://www.w3.org/TR/CSP/#sample-violation-report>`_. Note that some browsers will submit the violation report without cookies when reporting same-origin. You might need to poke a hole in your authorization rules if you rely on authentication cookies to get the requests through.
 
 NWebsec 2.0.0 introduced a built-in CSP report handler, so you don't need to implement your own. It will pick up the report before the ASP.NET authorization event fires, so you don't need to poke a whole in the authorization rules.
 
