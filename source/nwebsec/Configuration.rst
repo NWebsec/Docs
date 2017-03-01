@@ -1,6 +1,5 @@
-#############
-Configuration
-#############
+Configuration (ASP.NET 4)
+=========================
 
 .. toctree::
    :maxdepth: 2
@@ -158,7 +157,9 @@ For the curious, here's a complete configuration section with all headers disabl
 IIS 6 or IIS 7 Classic Pipeline Mode
 ************************************
 
-If your application is running in Classic Pipeline Mode (as opposed to `Integrated Pipeline Mode <http://learn.iis.net/page.aspx/243/aspnet-integration-with-iis/>`_), you'll have to add configuration by hand to load the HttpHeaderModule, here's an example:
+If your application is running in Classic Pipeline Mode (as opposed to `Integrated Pipeline Mode <https://learn.iis.net/page.aspx/243/aspnet-integration-with-iis/>`_) you'll have to use NWebsec version 2, as NWebsec 3 and later requires integrated pipeline mode due to breaking changes in ASP.NET.
+
+If you want to run NWebsec 2 under Classic Pipeline Mode, you'll have to add configuration by hand to load the HttpHeaderModule, here's an example:
 
 ..  code-block:: xml
 

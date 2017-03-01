@@ -1,14 +1,14 @@
-NWebsec libraries
-=================
+NWebsec libraries (ASP.NET 4)
+=============================
 
 .. toctree::
    :maxdepth: 2
    :titlesonly:
    :hidden:
 
-   NWebsec
-   NWebsec.Owin
-   NWebsec.Mvc
+   NWebsec <NWebsec>
+   NWebsec.Owin <NWebsec.Owin>
+   NWebsec.Mvc <NWebsec.Mvc>
 
 NWebsec is made up of several libraries, each offering different approaches to improve the security of your web applications.
 

@@ -47,7 +47,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'NWebsec'
-copyright = u'2015, André N. Klingsheim'
+copyright = u'2015 - 2017, André N. Klingsheim'
 author = u'André N. Klingsheim'
 
 # The version info for the project you're documenting, acts as replacement for

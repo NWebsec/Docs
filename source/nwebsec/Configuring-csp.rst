@@ -6,7 +6,7 @@ Consult :doc:`Breaking-changes` if you're upgrading to the NWebsec 4.x packages.
 
 Content-Security-Policy (CSP) provides a safety net for injection attacks by specifying a whitelist from where various content in a webpage can be loaded from.
 
-If you're unfamiliar with CSP you should read `An Introduction to Content Security Policy <http://www.html5rocks.com/en/tutorials/security/content-security-policy/>`_ by Mike West, one of the Chrome developers. You'll also find information about CSP on the `Mozilla Developer Network <https://developer.mozilla.org/en-US/docs/Security/CSP>`_.
+If you're unfamiliar with CSP you should read `An Introduction to Content Security Policy <https://www.html5rocks.com/en/tutorials/security/content-security-policy/>`_ by Mike West, one of the Chrome developers. You'll also find information about CSP on the `Mozilla Developer Network <https://developer.mozilla.org/en-US/docs/Security/CSP>`_.
  
 At the time of writing, CSP 1.0 is supported by most major browsers (Opera/Chrome/Firefox/Safari/Edge).
 
@@ -29,7 +29,7 @@ You should read this entire article to understand how CSP configuration is inher
 CSP configuration
 *****************
 
-NWebsec emits the CSP header if CSP is enabled and one or more directives are configured — except for redirects and static content. The directives specified in `CSP 1.0 <http://www.w3.org/TR/CSP/>`_ are:
+NWebsec emits the CSP header if CSP is enabled and one or more directives are configured — except for redirects and static content. The directives specified in `CSP 1.0 <https://www.w3.org/TR/CSP/>`_ are:
 
 * default-src — Specifies the default for other sources
 * script-src
@@ -43,7 +43,7 @@ NWebsec emits the CSP header if CSP is enabled and one or more directives are co
 * sandbox (optional to implement)
 * report-uri — Specifies where CSP violations can be reported
 
-`CSP level 2 <http://www.w3.org/TR/CSP2/>`_ adds quite a few new directives over these, currently supported by NWebsec are:
+`CSP level 2 <https://www.w3.org/TR/CSP2/>`_ adds quite a few new directives over these, currently supported by NWebsec are:
 
 * frame-ancestors
 * base-uri
@@ -52,6 +52,11 @@ NWebsec emits the CSP header if CSP is enabled and one or more directives are co
 * sandbox (no longer optional)
 
 CSP 2 also introduces script and style hashes and nonces. You'll find a good write-up on this on the `Mozilla blog <https://blog.mozilla.org/security/2014/10/04/csp-for-the-web-we-have/>`_. NWebsec supports script and style nonces as of version 3.2.0.
+
+`CSP level 3 <https://www.w3.org/TR/CSP3/>`_ adds quite a few new directives over these, currently supported by NWebsec are:
+
+* manifest-src
+* block-all-mixed-content 
 
 `Upgrade Insecure Requests <http://www.w3.org/TR/upgrade-insecure-requests/>`_ adds another CSP directive, see :doc:`Upgrade-insecure-requests` for details.
 

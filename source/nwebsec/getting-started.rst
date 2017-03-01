@@ -1,5 +1,6 @@
-Getting started with NWebsec
+Getting started with NWebsec (ASP.NET 4)
 ============================
+
 NWebsec lets you configure quite a few security headers, some are useful for most applications while others are a bit more specialized. Here's some guidance to get you started.
 
 First, you need to add NWebsec to your application. The easiest way to do this would be to get it through NuGet. Search for *NWebsec* in the package manager GUI, or install it through the console with one of the following commands:

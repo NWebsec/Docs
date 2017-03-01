@@ -1,6 +1,6 @@
-#######
-NWebsec
-#######
+###################
+NWebsec (ASP.NET 4)
+###################
 
 NWebsec provides an `HTTP Module <https://msdn.microsoft.com/library/ms178468.aspx>`_ that controls which headers are sent in the response from an ASP.NET application. The HTTP Module works for both Web Forms application and MVC applications as it hooks into the `ASP.NET/IIS pipeline <http://msdn.microsoft.com/en-us/library/bb470252.aspx>`_. There, it makes changes to the HTTP header collection according to the NWebsec configuration.
 

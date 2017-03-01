@@ -1,6 +1,6 @@
-###########
-NWebsec.Mvc
-###########
+#######################
+NWebsec.Mvc (ASP.NET 4)
+#######################
 
 NWebsec.Mvc lets you configure NWebsec through MVC ActionFilter attributes. MVC 3 or newer is supported. By decorating controllers and actions with attributes, the :doc:`NWebsec` configuration is overridden. This is how it works:
 

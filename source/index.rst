@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-NWebsec - Security libraries for ASP.NET
-========================================
+NWebsec classic - Security libraries for ASP.NET 4
+==================================================
 
 .. toctree::
    :maxdepth: 2
@@ -12,13 +12,13 @@ NWebsec - Security libraries for ASP.NET
    :hidden:
 
    Getting started <nwebsec/getting-started>
-   nwebsec/libraries
-   nwebsec/Configuration
-   nwebsec/Breaking-changes
+   NWebsec libraries <nwebsec/libraries>
+   Configuration <nwebsec/Configuration>
+   Breaking changes <nwebsec/Breaking-changes>
    nwebsec/NWebsec-and-the-SDL
 
 
-NWebsec consists of several security libraries for ASP.NET applications. Three of these libraries work together to remove version headers, control cache headers, stop potentially dangerous redirects, and set important security headers. They are collectively referred to as "NWebsec":
+NWebsec consists of several security libraries for ASP.NET applications. Three of these libraries work together to remove version headers, control cache headers, stop potentially dangerous redirects, and set important security headers. With the introduction of ASP.NET core, there are two sets of NWebsec packages. You've now found the documentation for the "old" packages built for ASP.NET 4:
 
 * `NWebsec <https://nuget.org/packages/NWebsec/>`_
 * `NWebsec.Mvc <https://nuget.org/packages/NWebsec.Mvc/>`_

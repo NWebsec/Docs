@@ -1,6 +1,6 @@
-############
-NWebsec.Owin
-############
+########################
+NWebsec.Owin (ASP.NET 4)
+########################
 
 NWebsec.Owin provides OWIN middleware that lets you output HTTP security headers. It currently supports:
 
