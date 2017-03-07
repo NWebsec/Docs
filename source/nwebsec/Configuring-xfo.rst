@@ -1,6 +1,5 @@
-###########################
 Configuring X-Frame-Options
-###########################
+===========================
 
 This header can be configured in three ways:
 
@@ -12,24 +11,22 @@ policy="Deny"         X-Frame-Options: Deny
 policy="SameOrigin"   X-Frame-Options: SameOrigin
 ===================   ================
 
-:doc:`NWebsec`: In web.config
-
-..  code-block:: xml 
-
-  <x-Frame-Options policy="Disabled"/>
-
-:doc:`NWebsec.Owin`: Register the middleware in the OWIN startup class:
+Register the middleware in the startup class:
 
 ..  code-block:: c#
 
-    using NWebsec.Owin;
-    ...
-    public void Configuration(IAppBuilder app)
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
     {
+        ...
+
+        app.UseStaticFiles();
+
         app.UseXfo(options => options.SameOrigin());
+
+        app.UseMvc(...);
     }
 
-:doc:`NWebsec.Mvc`: As an MVC attribute, defaults to policy="Deny":
+As an MVC attribute, defaults to policy="Deny":
 
 ..  code-block:: c#
     

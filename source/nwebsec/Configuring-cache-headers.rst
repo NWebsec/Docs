@@ -10,48 +10,55 @@ Also, the browser can serve previously loaded pages directly from cache — with
 
 You can read an excellent write-up on the issues related to browser cache and history on Opera's Yngve Pettersen's blog: `Introducing Cache Contexts, or: Why the browser does not know you are logged out <https://vivaldi.net/userblogs/entry/introducing-cache-contexts-or-why-the>`_.
 
-To instruct the browser to reload pages when the user is navigating with the back and forward buttons you can configure NWebsec to set the following headers: 
+To instruct the browser to reload pages when the user is navigating with the back and forward buttons you can configure NWebsec to set the following headers::
 
-.. 
-
-	Cache-Control: no-cache, no-store, must-revalidate  
-	Expires: -1  
+	Cache-Control: no-cache, no-store, must-revalidate
+	Expires: -1
 	Pragma: no-cache
-
-NWebsec will not add these headers for content that typically should be cached:
-
-* The WebResource.axd and ScriptResource.axd handlers that are commonly used in Web Forms applications. 
-* Static content when the application is running in Integrated Pipeline mode.
-* The "bundles" that were introduced in ASP.NET MVC 4.
 
 .. 	warning::
 
 	Setting these headers will make the browser reload every page in the browsing history when the user navigates with the "Back" and "Forward" buttons. This will affect the load on your server(s) — and also the user experience. Do not enable these headers unless you really have to. 
 
-There are two ways to enable the cache control headers:
-
-In web.config:
-
-..	code-block:: xml
-
-	<nwebsec>
-	    <httpHeaderSecurityModule >
-	        <setNoCacheHttpHeaders enabled="true" />
-	    </httpHeaderSecurityModule >
-	</nwebsec>
-
-.. 	note::
-
-	Enabling the no cache headers in config is a point of no return, as of NWebsec 3.0.0. This is by design after the PreSendRequestHeaders event was `deprecated by MSFT <http://www.asp.net/aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet,-and-what-to-do-instead#presend>`_. If you want to enable these headers globally for your app but make exceptions for some of your controllers/actions, use a global MVC filter instead, as per the following example.
-
-
-Or as an MVC filter:
+Middleware
+----------
 
 ..	code-block:: c#
 
-	public static void RegisterGlobalFilters(GlobalFilterCollection filters)
-	{
-	    filters.Add(new SetNoCacheHttpHeadersAttribute());
-	}
+	public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        {
+        	...
 
-You can also set the attribute on controllers and actions, see :doc:`NWebsec.Mvc`.
+            app.UseStaticFiles();
+
+            app.UseNoCacheHttpHeaders(); //Registered after static files, to set headers only for dynamic content.
+            
+            app.UseMvc(...);
+        }
+
+.. 	note::
+
+	Enabling the no cache headers in middleware is a point of no return. If you want to enable these headers globally for your app but make exceptions for some of your controllers/actions, use a global MVC filter instead, as per the following example.
+
+
+MVC filter
+----------
+
+..	code-block:: c#
+
+	...
+    using NWebsec.AspNetCore.Mvc;
+    using NWebsec.AspNetCore.Mvc.Csp;
+
+    ....
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // Add framework services.
+        services.AddMvc(opts =>
+        {
+            opts.Filters.Add(typeof(NoCacheHttpHeadersAttribute));
+        });
+    }
+
+You can also set the attribute on controllers and actions, see :doc:`NWebsec.AspNetCore.Mvc`.

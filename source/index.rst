@@ -35,6 +35,8 @@ Historically, NWebsec has been targeting ASP.NET 4. The following packages targe
 * `NWebsec.Mvc <https://nuget.org/packages/NWebsec.Mvc/>`_
 * `NWebsec.Owin <https://nuget.org/packages/NWebsec.Owin/>`_
 
+Documentation for these packages is maintained separately as the `aspnet4 version <https://docs.nwebsec.com/en/aspnet4/>`_ of the docs.
+
 There's also a dedicated session security library documented as a separate project. 
 
 * `NWebsec.SessionSecurity <https://nuget.org/packages/NWebsec.SessionSecurity/>`_ / `documentation <http://docs.nwebsec.com/projects/SessionSecurity/en/latest/>`_.

@@ -1,89 +1,31 @@
-#######################
-NWebsec.Mvc (ASP.NET 4)
-#######################
+###################
+NWebsec Tag Helpers
+###################
 
-NWebsec.Mvc lets you configure NWebsec through MVC ActionFilter attributes. MVC 3 or newer is supported. By decorating controllers and actions with attributes, the :doc:`NWebsec` configuration is overridden. This is how it works:
-
-NWebsec.Mvc depends on the NWebsec package, which includes the HttpHeaderModule. This module relies on its :doc:`Configuration`, if there is any. Now, the attributes in NWebsec.Mvc lets you override the HttpHeaderModule's configuration, here's the order in which the final configuration is calculated:
-
-#. Web.config
-#. MVC global filter
-#. MVC controller
-#. MVC action
-
-This gives a fair amount of flexibility. Do your stuff in config or in MVC, or both. You decide!
-
-**************
-The attributes
-**************
-
-Most elements from the :doc:`Configuration` have an MVC attribute counterpart.
-
-Now back to the attributes — they are probably best explained in code. Here are the attributes registered as global filters in Global.asax in a typical MVC app:
+NWebsec includes tag helpers to help generate CSP nonces. Import the tag helpers in the `_ViewImports.cshtml`, alongside those from Microsoft:
 
 ..  code-block:: c#
 
-    using System.Web.Mvc;
-    using NWebsec.Csp;
-    using NWebsec.Mvc.HttpHeaders;
-    using NWebsec.Mvc.HttpHeaders.Csp;
+    @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+    @addTagHelper *, NWebsec.AspNetCore.Mvc.TagHelpers
 
-    ....
+Then you can easily include a CSP nonce on script or style tags in your views:
 
-    public static void RegisterGlobalFilters(GlobalFilterCollection filters)
-    {
-        filters.Add(new SetNoCacheHttpHeadersAttribute());
-        filters.Add(new XRobotsTagAttribute() { NoIndex = true, NoFollow = true });
-        filters.Add(new XContentTypeOptionsAttribute());
-        filters.Add(new XDownloadOptionsAttribute());
-        filters.Add(new XFrameOptionsAttribute());
-        filters.Add(new XXssProtectionAttribute());
-        //CSP
-        filters.Add(new CspAttribute());
-        filters.Add(new CspDefaultSrcAttribute { Self = Source.Enable });
-        filters.Add(new CspScriptSrcAttribute { Self = Source.Enable });
-        //CSPReportOnly
-        filters.Add(new CspReportOnlyAttribute());
-        filters.Add(new CspScriptSrcReportOnlyAttribute { None = Source.Enable });
-    }
+..  code-block:: html
 
-Here's what the attributes will look like when applied to a controller and an action method:
+    <script nws-csp-add-nonce="true">
+        alert('Nonce added');
+    </script>
 
-..  code-block:: c#
+    <style nws-csp-add-nonce="true"></style>
 
-    using System.Web.Mvc;
-    using NWebsec.HttpHeaders;
-    using NWebsec.Mvc.HttpHeaders;
+NWebsec will generate nonces, add them to the CSP header, and include them in the markup:
 
-    ...
+..  code-block:: html
 
-    [SetNoCacheHttpHeaders]
-    [XContentTypeOptions]
-    [XDownloadOptions]
-    [XFrameOptions(Policy = XFrameOptionsPolicy.SameOrigin)]
-    [XXssProtection]
-    public class HomeController : Controller
-    {
+    <script nonce="buoc1h8zWh0qITh/RHq1">
+        alert('Nonce added');
+    </script>
+    <style nonce="Gn&#x2B;BKIciW17bcffZtx5o"></style>
 
-        [XFrameOptions(Policy = XFrameOptionsPolicy.Deny)]
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-
-        [SetNoCacheHttpHeaders(Enabled = false)]
-        [XContentTypeOptions(Enabled = false)]
-        [XDownloadOptions(Enabled = false)]
-        [XFrameOptions(Policy = XFrameOptionsPolicy.Disabled)]
-        [XXssProtection(Policy = XXssProtectionPolicy.Disabled)]
-        [XRobotsTag(Enabled = false)]
-        public ActionResult HeadersDisabled()
-        {
-            return View();
-        }
-    }
-
-Note how the Index action method is decorated with only one attribute. It has its own XFrameOptions setting, and will inherit all other attributes from the controller.
-
-The HeadersDisabled action shows how headers can be disabled per action or controller. This lets you define a strict global security policy for your application and relax the policy where needed. 
+The nonce values will of course change between requests.

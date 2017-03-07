@@ -1,6 +1,5 @@
-########################
 Configuring X-Robots-Tag
-########################
+========================
 
 You might be familiar with the Robots Exclusion Protocol (REP), often communicated by a robots.txt file on the root of a site or through meta tags in HTML such as:
 
@@ -33,41 +32,36 @@ NWebsec lets you emit the X-Robots-Tag header as of version 2.1.0.  The directiv
 
 There are several ways to enable the X-Robots-Tag header:
 
-With :doc:`NWebsec` you can enable it in web.config (*enabled* and at least one directive must be true):
-
-..  code-block:: xml
-    
-    <nwebsec>
-        <httpHeaderSecurityModule>
-            <x-Robots-Tag enabled="true"
-                           noIndex="true"
-                           noFollow="false"
-                           noArchive="false"
-                           noOdp="false"
-                           noSnippet="false"
-                           noImageIndex="false"
-                           noTranslate="false"/>
-        </httpHeaderSecurityModule>
-    </nwebsec>
-
-With :doc:`NWebsec.Owin`, you register the middleware in the OWIN startup class:
+With :doc:`NWebsec.AspNetCore.Middleware`, you register the middleware in the startup class:
 
 ..  code-block:: c#
     
-    using NWebsec.Owin;
-    ...
-    public void Configuration(IAppBuilder app)
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
     {
+        ...
+
+        app.UseStaticFiles();
+
         app.UseXRobotsTag(options => options.NoIndex().NoFollow());
+
+        app.UseMvc(...);
     }
 
-:doc:`NWebsec.Mvc` lets you register an MVC filter:
+:doc:`NWebsec.AspNetCore.Mvc` lets you register an MVC filter:
 
 ..  code-block:: c#
 
-    public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+    ...
+    using NWebsec.AspNetCore.Mvc;
+    using NWebsec.AspNetCore.Mvc.Csp;
+
+    public void ConfigureServices(IServiceCollection services)
     {
-        filters.Add(new XRobotsTagAttribute() { NoIndex = true, NoFollow = true });
+        // Add framework services.
+        services.AddMvc(opts =>
+        {
+            opts.Filters.Add(new XRobotsTagAttribute() { NoIndex = true, NoFollow = true });
+        });
     }
 
-You can also set the attribute on controllers and actions, see :doc:`NWebsec.Mvc` for details.
+You can also set the attribute on controllers and actions, see :doc:`NWebsec.AspNetCore.Mvc` for details.

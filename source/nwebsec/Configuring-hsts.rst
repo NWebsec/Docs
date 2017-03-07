@@ -1,6 +1,5 @@
-#####################################
 Configuring Strict-Transport-Security
-#####################################
+=====================================
 
 There are five configuration options:
 
@@ -23,25 +22,17 @@ max-age="365" includeSubdomains="true"                  Strict-Transport-Securit
 max-age="365" includeSubdomains="true" preload="true"   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 =====================================================   =======================================================================
 
-In web.config:
-
-..  code-block:: xml
-    
-    <strict-Transport-Security max-age="365" />
-    <strict-Transport-Security max-age="00:30:00" includeSubdomains="true" />
-    <strict-Transport-Security max-age="365" includeSubdomains="true" preload="true"/>
-    <strict-Transport-Security max-age="365" upgradeInsecureRequests="true"/>
-
-
-:doc:`NWebsec.Owin`: Register the middleware in the OWIN startup class:
+Register the middleware in the startup class:
 
 ..  code-block:: c#
 
-    using NWebsec.Owin;
-    ...
-    public void Configuration(IAppBuilder app)
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
     {
-        app.UseHsts(options => options.MaxAge(days:30).IncludeSubdomains());
+        app.UseHsts(options => options.MaxAge(days: 30).IncludeSubdomains());
         //app.UseHsts(options => options.MaxAge(days:365).IncludeSubdomains().Preload());
         //app.UseHsts(options => options.MaxAge(days:365).UpgradeInsecureRequests());
+
+        app.UseStaticFiles();
+
+        app.UseMvc(...);
     }
