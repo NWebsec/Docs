@@ -45,7 +45,8 @@ CSP 2 also introduces script and style hashes and nonces. You'll find a good wri
 `CSP level 3 <https://www.w3.org/TR/CSP3/>`_ adds quite a few new directives over these, currently supported by NWebsec are:
 
 * manifest-src
-* block-all-mixed-content 
+* block-all-mixed-content
+* strict-dynamic
 
 `Upgrade Insecure Requests <https://www.w3.org/TR/upgrade-insecure-requests/>`_ adds another CSP directive, see :doc:`Upgrade-insecure-requests` for details.
 

@@ -24,11 +24,11 @@ And if you'd want to use the MVC tag helpers
     Install-Package NWebsec.AspNetCore.Mvc.TagHelpers
 
 
-Now it's time to start securing your application! It's good practice to remove the version headers added by ASP.NET and IIS, so you'd want to *suppress version headers* for your web application. The NuGet installation procedure will make some modifications to the web.config to disable version headers.
+Now it's time to start securing your application! It's good practice to not leak information through the referer (sic.) header, this is managed with the `Referrer-Policy` header.
 
-To avoid various attacks carried out through iframes, the *X-Frame-Options header* should be enabled. MIME sniffing is a source to many problems, including security issues, so you'd want to run with the *X-Content-Type-Options header*.
+To avoid various attacks carried out through iframes, the `X-Frame-Options header` should be enabled. MIME sniffing is a source to many problems, including security issues, so you'd want to run with the `X-Content-Type-Options header`.
 
-For applications that run over SSL/TLS, you should most definitely employ the *Strict-Transport-Security header* — instructing the browser to interact with anything on your domain over a secured connection only.
+For applications that run over SSL/TLS, you should most definitely employ the `Strict-Transport-Security header` — instructing the browser to interact with anything on your domain over a secured connection only.
 
 Unless your application needs to redirect users to arbitrary sites on the internet, you'd want *redirect validation* enabled. There might be a few sites you'd want to whitelist for redirects, in particular if you use WIF or Google/Facebook/any other external authentication provider. Consult :doc:`Redirect-validation` if you run into trouble.
 
@@ -54,6 +54,8 @@ So, for an application running over http the following is a reasonable starting 
 
         //Registered before static files to always set header
         app.UseXContentTypeOptions();
+        app.UseReferrerPolicy(opts => opts.NoReferrer());
+
 
         app.UseStaticFiles();
 
@@ -92,6 +94,7 @@ If your site is served over https, you'd also want to include the Strict-Transpo
         //Registered before static files to always set header
         app.UseHsts(hsts => hsts.MaxAge(365));
         app.UseXContentTypeOptions();
+        app.UseReferrerPolicy(opts => opts.NoReferrer());
 
         app.UseStaticFiles();
 
@@ -116,4 +119,4 @@ NWebsec lets you add other security headers as well, but these are more tightly 
 
 See :doc:`Configuring-csp` to learn how to enable CSP, this is where the real job starts. Good luck! :)
 
-Note also that security headers can be enabled through MVC attributes, refer to :doc:`NWebsec.Mvc` for details.
+Note also that security headers can be enabled through MVC attributes, refer to :doc:`NWebsec.AspNetCore.Mvc` for details.

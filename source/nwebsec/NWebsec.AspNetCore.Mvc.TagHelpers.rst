@@ -1,13 +1,32 @@
-###################
 NWebsec Tag Helpers
-###################
+===================
 
-NWebsec includes tag helpers to help generate CSP nonces. Import the tag helpers in the `_ViewImports.cshtml`, alongside those from Microsoft:
+NWebsec includes tag helpers to help generate set referrer policy or generate CSP nonces. Import the tag helpers in the `_ViewImports.cshtml`, alongside those from Microsoft:
 
 ..  code-block:: c#
 
     @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
     @addTagHelper *, NWebsec.AspNetCore.Mvc.TagHelpers
+
+All NWebsec Tag Helpers are prefixed `nws-`, and will show up in Intellisense for supported elements.
+
+Referrer policy
+---------------
+Referrer policy can be set through a `<meta>` tag. The NWebsec tag helper helps select a valid value and emits the correct policy as the attribute value. The following markup:
+
+..  code-block:: html
+
+       <meta name="referrer" nws-referrerpolicy="NoReferrer"/>
+
+would result in the following meta tag, signaling to the browser that the referrer header should not be sent:
+
+..  code-block:: html
+
+    <meta name="referrer" content="no-referrer" />
+
+
+CSP nonces
+----------
 
 Then you can easily include a CSP nonce on script or style tags in your views:
 
