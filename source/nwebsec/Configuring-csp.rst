@@ -209,7 +209,8 @@ Script and style nonces through HtmlHelpers
 The :doc:`NWebsec.Mvc` package includes HtmlHelpers to add CSP 2 script and style nonces to allow inline scripts/styles. The helpers will output the complete nonce-attribute. Here is an example of usage:
 
 ..  code-block:: html
-
+    @using NWebsec.Mvc.HttpHeaders.Csp
+    
     <script @Html.CspScriptNonce()>document.write("Hello world")</script>
     <style @Html.CspStyleNonce()>
        h1 {
