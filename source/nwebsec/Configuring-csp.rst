@@ -99,6 +99,7 @@ The :doc:`NWebsec.AspNetCore.Middleware` package includes CSP middleware. Here's
         app.UseCsp(options => options
             .DefaultSources(s => s.Self())
             .ScriptSources(s => s.Self().CustomSources("scripts.nwebsec.com"))
+            .ConnectSources(s => s.CustomSources(new string[] { "https://contoso.com", "wss:" }))
             .ReportUris(r => r.Uris("/report")));
 
             app.UseCspReportOnly(options => options
