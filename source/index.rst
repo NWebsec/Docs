@@ -35,7 +35,7 @@ Historically, NWebsec has been targeting ASP.NET 4. The following packages targe
 * `NWebsec.Mvc <https://nuget.org/packages/NWebsec.Mvc/>`_
 * `NWebsec.Owin <https://nuget.org/packages/NWebsec.Owin/>`_
 
-Documentation for these packages is maintained separately as the `aspnet4 version <https://docs.nwebsec.com/en/aspnet4/>`_ of the docs.
+Documentation for these packages is maintained separately as the `aspnet4 version <https://nwebsec.readthedocs.io/en/aspnet4/>`_ of the docs.
 
 There's also a dedicated session security library documented as a separate project. 
 
@@ -45,7 +45,7 @@ NWebsec.AzureStartupTasks
 -------------------------
 In addition to the ASP.NET libraries, there's also a package that helps you harden the TLS configuration for Azure web role instances:
 
-* `NWebsec.AzureStartupTasks <https://docs.nwebsec.com/projects/AzureStartupTasks/en/latest/>`_ / `documentation <https://docs.nwebsec.com/projects/AzureStartupTasks/en/latest/>`_.
+* `NWebsec.AzureStartupTasks <https://nwebsec.readthedocs.io/projects/AzureStartupTasks/en/latest/>`_ / `documentation <https://nwebsec.readthedocs.io/projects/AzureStartupTasks/en/latest/>`_.
 
 Learn why you need to harden the default TLS configuration in the blog post `Hardening Windows Server 2008/2012 and Azure SSL/TLS configuration <http://www.dotnetnoob.com/2013/10/hardening-windows-server-20082012-and.html>`_.
 
