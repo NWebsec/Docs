@@ -1,0 +1,32 @@
+title: NWebsec
+description: Security libraries for ASP.NET Core
+theme: just-the-docs
+
+# Served at the apex of the custom domain, so no path prefix is needed.
+# An empty baseurl makes links resolve correctly both locally
+# (http://127.0.0.1:4000/) and on https://docs.nwebsec.com/.
+url: https://docs.nwebsec.com
+baseurl: ""
+
+# Apply the just-the-docs layout (with sidebar nav) to every page.
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+# just-the-docs options
+search_enabled: true
+heading_anchors: true
+aux_links:
+  "NWebsec on GitHub":
+    - "https://github.com/NWebsec/NWebsec"
+
+# Color scheme supports "light" (default) and "dark"
+color_scheme: dark
+
+# Don't process the converted-from source or build helpers.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
