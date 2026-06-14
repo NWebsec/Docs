@@ -52,9 +52,12 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
-        # base_path is empty for the docs.nwebsec.com custom domain,
-        # matching baseurl: "" in _config.yml.
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        # The site is served at the apex of the docs.nwebsec.com custom domain,
+        # so baseurl must be empty (as set in _config.yml). We deliberately do
+        # NOT use steps.pages.outputs.base_path here: until the custom domain is
+        # active, that resolves to the project-site path "/Docs" and would
+        # prefix every link/asset with /Docs.
+        run: bundle exec jekyll build --baseurl ""
         env:
           JEKYLL_ENV: production
       - name: Upload artifact
