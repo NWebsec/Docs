@@ -25,6 +25,7 @@ aux_links:
 # Color scheme supports "light" (default) and "dark"
 color_scheme: dark
 
+ga_tracking: G-BKRFKNBFX9
 # Don't process the converted-from source or build helpers.
 exclude:
   - Gemfile
