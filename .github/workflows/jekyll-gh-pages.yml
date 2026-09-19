@@ -42,7 +42,7 @@ jobs:
         working-directory: docs   # the Jekyll site + Gemfile live here
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -59,7 +59,7 @@ jobs:
         env:
           JEKYLL_ENV: production
       - name: Upload main site build
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: site-main
           path: docs/_site
@@ -75,7 +75,7 @@ jobs:
         working-directory: docs-aspnet4
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -91,7 +91,7 @@ jobs:
         env:
           JEKYLL_ENV: production
       - name: Upload aspnet4 site build
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: site-aspnet4
           path: docs-aspnet4/_site
@@ -106,19 +106,19 @@ jobs:
     needs: [build-main, build-aspnet4]
     steps:
       - name: Download main site build
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: site-main
           path: _combined
       - name: Download aspnet4 site build into en/aspnet4/
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: site-aspnet4
           path: _combined/en/aspnet4
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload combined artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: _combined
 
