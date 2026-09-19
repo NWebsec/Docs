@@ -15,6 +15,7 @@ on:
     branches: ["gh-pages"]
     paths:
       - "docs/**"
+      - "docs-aspnet4/**"
       - ".github/workflows/jekyll-gh-pages.yml"
 
   # Allows you to run this workflow manually from the Actions tab
@@ -33,8 +34,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Build job
-  build:
+  # Build the ASP.NET Core docs (docs/), served at the domain apex.
+  build-main:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -48,9 +49,6 @@ jobs:
           ruby-version: "3.3"
           bundler-cache: true       # runs bundle install and caches gems
           working-directory: docs
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
       - name: Build with Jekyll
         # The site is served at the apex of the docs.nwebsec.com custom domain,
         # so baseurl must be empty (as set in _config.yml). We deliberately do
@@ -60,11 +58,69 @@ jobs:
         run: bundle exec jekyll build --baseurl ""
         env:
           JEKYLL_ENV: production
-      - name: Upload artifact
+      - name: Upload main site build
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-main
+          path: docs/_site
+          retention-days: 1
+
+  # Build the classic ASP.NET 4 docs (docs-aspnet4/) as a fully separate
+  # Jekyll site/build, so it gets its own just-the-docs sidebar nav instead
+  # of merging into docs/'s nav tree (just-the-docs' nav is global per build).
+  build-aspnet4:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: docs-aspnet4
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+          working-directory: docs-aspnet4
+      - name: Build with Jekyll
+        # This site is served at a path prefix (docs.nwebsec.com/en/aspnet4/),
+        # not the domain apex, so baseurl must be non-empty here -- the
+        # opposite of build-main above -- for just-the-docs' nav/asset links
+        # to resolve under /en/aspnet4 instead of at the domain root.
+        run: bundle exec jekyll build --baseurl "/en/aspnet4"
+        env:
+          JEKYLL_ENV: production
+      - name: Upload aspnet4 site build
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-aspnet4
+          path: docs-aspnet4/_site
+          retention-days: 1
+
+  # Combine both builds into one artifact tree. GitHub Pages only accepts one
+  # deploy artifact per run, and Jekyll's baseurl only affects generated links,
+  # not physical output location -- so build-aspnet4's output (flat at its own
+  # _site root) must be explicitly placed under en/aspnet4/ here.
+  combine:
+    runs-on: ubuntu-latest
+    needs: [build-main, build-aspnet4]
+    steps:
+      - name: Download main site build
+        uses: actions/download-artifact@v4
+        with:
+          name: site-main
+          path: _combined
+      - name: Download aspnet4 site build into en/aspnet4/
+        uses: actions/download-artifact@v4
+        with:
+          name: site-aspnet4
+          path: _combined/en/aspnet4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload combined artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # path is relative to the repo root, not working-directory.
-          path: docs/_site
+          path: _combined
 
   # Deployment job
   deploy:
@@ -72,7 +128,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build
+    needs: combine
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
