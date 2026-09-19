@@ -1,0 +1,35 @@
+title: "NWebsec classic"
+description: "Security libraries for ASP.NET 4"
+theme: just-the-docs
+
+# Served at a PATH PREFIX on the same custom domain as the main site
+# (https://docs.nwebsec.com/en/aspnet4/) -- NOT at the domain apex.
+# Unlike docs/_config.yml, baseurl must be NON-EMPTY here so just-the-docs'
+# internal nav/search/asset links resolve under /en/aspnet4 instead of at
+# the domain root.
+url: https://docs.nwebsec.com
+baseurl: "/en/aspnet4"
+
+# Apply the just-the-docs layout (with sidebar nav) to every page.
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+# just-the-docs options
+search_enabled: true
+heading_anchors: true
+aux_links:
+  "NWebsec on GitHub":
+    - "https://github.com/NWebsec/NWebsec"
+
+# Color scheme supports "light" (default) and "dark"
+color_scheme: dark
+
+ga_tracking: G-BKRFKNBFX9
+# Don't process the converted-from source or build helpers.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor

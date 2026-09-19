@@ -1,0 +1,11 @@
+# Jekyll build output and caches (regenerated on every build, incl. CI)
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Local bundler install path, if ever used
+vendor/
+
+# Note: Gemfile.lock is intentionally NOT ignored — it pins gem versions
+# for reproducible CI builds.
