@@ -51,6 +51,15 @@ convert "$SRC/index.rst" "$ROOT/index.md"
 emit_fm "$ROOT/index.md" "Home" 1
 assemble "$ROOT/index.md"
 
+# ---- fixup: :doc: links from the home page resolve relative to $ROOT, but
+# their targets actually live under $OUT (nwebsec/) -- unlike sibling pages
+# linking to each other (already correctly relative), the home page needs
+# the nwebsec/ prefix added back in.
+sed -E -i \
+  -e 's#\]\(Authenticated-session-identifiers\.html\)#](nwebsec/Authenticated-session-identifiers.html)#' \
+  -e 's#\]\(Configuring-session-security\.html\)#](nwebsec/Configuring-session-security.html)#' \
+  "$ROOT/index.md"
+
 # ---- top-level pages ----
 convert "$SRC/Configuring-session-security.rst" "$OUT/Configuring-session-security.md"
 emit_fm "$OUT/Configuring-session-security.md" "Configuring session security" 2

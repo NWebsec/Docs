@@ -51,6 +51,10 @@ convert "$SRC/index.rst" "$ROOT/index.md"
 emit_fm "$ROOT/index.md" "Home" 1
 assemble "$ROOT/index.md"
 
+# ---- fixup: the :doc: link from the home page resolves relative to $ROOT,
+# but its target actually lives under $OUT (nwebsec/) -- add the prefix back.
+sed -E -i 's#\]\(TLS-hardening\.html\)#](nwebsec/TLS-hardening.html)#' "$ROOT/index.md"
+
 # ---- top-level pages ----
 convert "$SRC/TLS-hardening.rst" "$OUT/TLS-hardening.md"
 emit_fm "$OUT/TLS-hardening.md" "TLS hardening" 2
