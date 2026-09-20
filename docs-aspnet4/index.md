@@ -21,8 +21,6 @@ There are also two stand-alone libraries. Since they don't follow the versions o
 
 NWebsec.SessionSecurity improves ASP.NET session security. Read more about the improvements in the blog post [Ramping up ASP.NET session security](http://www.dotnetnoob.com/2013/07/ramping-up-aspnet-session-security.html).
 
-[NWebsec.AzureStartupTasks](https://github.com/NWebsec/NWebsec.AzureStartupTasks/wiki) helps you harden the TLS configuration for Azure web role instances. Learn why you need to harden the default TLS configuration in the blog post [Hardening Windows Server 2008/2012 and Azure SSL/TLS configuration](http://www.dotnetnoob.com/2013/10/hardening-windows-server-20082012-and.html).
-
 To keep up with new releases or to give feedback, find [@NWebsec](https://x.com/NWebsec) on X.
 
 ## Looking for the ASP.NET Core docs?
