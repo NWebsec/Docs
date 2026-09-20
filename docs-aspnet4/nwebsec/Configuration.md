@@ -2,6 +2,7 @@
 title: "Configuration"
 nav_order: 4
 has_children: true
+has_toc: false
 ---
 
 # Configuration (ASP.NET 4)
