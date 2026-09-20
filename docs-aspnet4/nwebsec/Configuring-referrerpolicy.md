@@ -49,7 +49,7 @@ The resulting meta tag is:
 
 ### Origin
 
-*origin* instructs the browser to only include the page's origin in the referrer header. E.g. for <https://www.nwebsec.com/somepage> the browser will include <https://www.nwebsec.com/> in the referer header.
+*origin* instructs the browser to only include the page's origin in the referrer header. E.g. for *https://www.nwebsec.com/somepage* the browser will include *https://www.nwebsec.com/* in the referer header.
 
 ```csharp
 @Html.ReferrerPolicyMetaTag(policy => policy.Origin)

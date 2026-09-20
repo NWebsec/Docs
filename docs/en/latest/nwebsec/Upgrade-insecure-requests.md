@@ -15,11 +15,11 @@ The upgrade insecure requests CSP directive instructs browsers to upgrade all re
 
 ## How it works
 
-Say you have a site that has been running on <http://www.example.com> for years, and out of concern for your users' privacy you want to make the site available on <https://www.example.com>. You realize there's a daunting problem, <http://www.example.com> loads subresources (images, scripts etc.) from third party sites, these are all loaded over <http://> and there's no easy way to change all those references to point to <https://>. These resources are regarded mixed content as soon as you move to <https://www.example.com>. The content is available over <https://> on the third party sites, it's just that your're not able to update every reference to it.
+Say you have a site that has been running on *http://www.example.com* for years, and out of concern for your users' privacy you want to make the site available on *https://www.example.com*. You realize there's a daunting problem, *http://www.example.com* loads subresources (images, scripts etc.) from third party sites, these are all loaded over *http://* and there's no easy way to change all those references to point to *https://*. These resources are regarded mixed content as soon as you move to *https://www.example.com*. The content is available over *https://* on the third party sites, it's just that your're not able to update every reference to it.
 
-This is where `upgrade-insecure-requests` comes to the rescue. For browsers that support it, you can redirect users to <https://www.example.com>, and include a `Content-Security-Policy: upgrade-insecure-requests` header in the response. Conformant browsers will then load the page's resources from both same origin and third party sites over <https://>, and the mixed content problem goes away. The page and its subresources are all loaded over a (more) secure connection.
+This is where `upgrade-insecure-requests` comes to the rescue. For browsers that support it, you can redirect users to *https://www.example.com*, and include a `Content-Security-Policy: upgrade-insecure-requests` header in the response. Conformant browsers will then load the page's resources from both same origin and third party sites over *https://*, and the mixed content problem goes away. The page and its subresources are all loaded over a (more) secure connection.
 
-You need to detect browser support for the `upgrade-insecure-requests` CSP directive. Redirecting non-conforming browsers to <https://> will result in the mixed content issues. Fortunately, browsers will advertise their support through a request header:
+You need to detect browser support for the `upgrade-insecure-requests` CSP directive. Redirecting non-conforming browsers to *https://* will result in the mixed content issues. Fortunately, browsers will advertise their support through a request header:
 
 > Upgrade-Insecure-Requests: 1
 
