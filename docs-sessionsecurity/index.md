@@ -16,7 +16,7 @@ For background on why the library improves security, see the blog post [Ramping 
 
 Did you now that the SDL requires countermeasures against session fixation attacks, and that certain security headers must set by your web application? No? See [NWebsec and the SDL](/en/latest/nwebsec/NWebsec-and-the-SDL.html) to learn more.
 
-To keep up with new releases or to give feedback, find [@NWebsec](https://twitter.com/NWebsec) on Twitter.
+To keep up with new releases or to give feedback, find [@NWebsec](https://x.com/NWebsec) on X.
 
 ## Looking for the other NWebsec docs?
 
