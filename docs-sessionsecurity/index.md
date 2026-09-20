@@ -3,7 +3,7 @@ title: "Home"
 nav_order: 1
 ---
 
-# NWebsec - Improved session security for ASP.NET
+# NWebsec - Improved session security for ASP.NET Classic
 
 
 The NWebsec.SessionSecurity library improves ASP.NET session security by enforcing a strong binding between an authenticated user's identity and the user's session identifier.
@@ -16,9 +16,7 @@ For background on why the library improves security, see the blog post [Ramping 
 
 Did you now that the SDL requires countermeasures against session fixation attacks, and that certain security headers must set by your web application? No? See [NWebsec and the SDL](/en/latest/nwebsec/NWebsec-and-the-SDL.html) to learn more.
 
-Check out the [NWebsec demo site](http://www.nwebsec.com/) to see the headers and session security improvements in action.
-
-To keep up with new releases or to give feedback, find [@NWebsec](https://twitter.com/NWebsec) on Twitter. You can also get in touch at nwebsec (at) nwebsec (dot) com.
+To keep up with new releases or to give feedback, find [@NWebsec](https://twitter.com/NWebsec) on Twitter.
 
 ## Looking for the other NWebsec docs?
 
