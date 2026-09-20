@@ -14,8 +14,8 @@ There are five configuration options:
 - **httpsOnly** ensures that the HSTS header is set over secure connections only, defaults to *true*.
 - **upgradeInsecureRequests** sets the HSTS header only for UAs that supports [Upgrade insecure requests](Upgrade-insecure-requests.html). This setting cannot be combined with **preload**.
 
-> [!NOTE]
 > **upgradeInsecureRequests** is intended to be used in combination with the [Upgrade insecure requests](Upgrade-insecure-requests.html) CSP directive.
+{: .note }
 
 | Configuration | Resulting header |
 |----|----|

@@ -10,8 +10,8 @@ parent: "Configuration"
 
 The upgrade insecure requests CSP directive instructs browsers to upgrade all requests triggered by a page from HTTP to HTTPS. This lets site owners move legacy sites from HTTP to HTTPS without having to change every single link, and references to images, scripts and other content from HTTP to HTTPS to avoid mixed content issues.
 
-> [!NOTE]
 > Unless you're tasked with moving a legacy site that has been running on HTTP to HTTPS, and it has a bunch of hard coded references to HTTP resources on third party sites, `upgrade-insecure-requests` is not what you want. For new sites, the upcoming [Mixed Content](https://www.w3.org/TR/mixed-content/) specification would be a better fit.
+{: .note }
 
 ## How it works
 
@@ -48,7 +48,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-> [!NOTE]
 > Remember to allow "same host redirects" if you're also using [Redirect validation](Redirect-validation.html).
 >
 > Also note that NWebsec relies on the `Request.IsHttps` property when determining whether to redirect from http to https. If you are behind a load balancer/reverse proxy that terminates the user's https connection you must ensure that these properties are set correctly.
+{: .note }

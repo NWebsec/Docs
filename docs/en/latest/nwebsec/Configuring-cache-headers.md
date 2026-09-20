@@ -12,16 +12,14 @@ In short the browser can behave in two ways when it comes to caching. It could a
 
 Also, the browser can serve previously loaded pages directly from cache — without checking with the server whether the page has changed. This is a common behaviour when the user is navigating back and forth with the "Back" and "Forward" buttons in the browser.
 
-You can read an excellent write-up on the issues related to browser cache and history on Opera's Yngve Pettersen's blog: [Introducing Cache Contexts, or: Why the browser does not know you are logged out](https://vivaldi.net/userblogs/entry/introducing-cache-contexts-or-why-the).
-
 To instruct the browser to reload pages when the user is navigating with the back and forward buttons you can configure NWebsec to set the following headers:
 
     Cache-Control: no-cache, no-store, must-revalidate
     Expires: -1
     Pragma: no-cache
 
-> [!WARNING]
 > Setting these headers will make the browser reload every page in the browsing history when the user navigates with the "Back" and "Forward" buttons. This will affect the load on your server(s) — and also the user experience. Do not enable these headers unless you really have to.
+{: .warning }
 
 ## Middleware
 
@@ -38,8 +36,8 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
     }
 ```
 
-> [!NOTE]
 > Enabling the no cache headers in middleware is a point of no return. If you want to enable these headers globally for your app but make exceptions for some of your controllers/actions, use a global MVC filter instead, as per the following example.
+{: .note }
 
 ## MVC filter
 

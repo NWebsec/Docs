@@ -31,8 +31,8 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 This configuration will validate all HTTP responses with a status code of 3xx, except 304 (Not Modified). Redirects to relative URIs are allowed, as well as redirects to the same site — meaning the same scheme/host/port. Redirects to other destinations will trigger a *RedirectValidationException*, terminating the response.
 
-> [!NOTE]
 > Make sure to register the redirect validation middleware reasonably early in the pipeline. The middleware will not be called if a preceding middleware redirects and terminates the pipeline.
+{: .note }
 
 Web applications often redirect users from HTTP to HTTPS, this must be explicitly allowed. If the site is running on a non-default HTTPS port, one or more port numbers must be configured. Also, if your application needs to redirect to other sites they can be added to a whitelist in config, as such:
 

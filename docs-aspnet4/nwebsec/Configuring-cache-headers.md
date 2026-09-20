@@ -24,8 +24,8 @@ NWebsec will not add these headers for content that typically should be cached:
 - Static content when the application is running in Integrated Pipeline mode.
 - The "bundles" that were introduced in ASP.NET MVC 4.
 
-> [!WARNING]
 > Setting these headers will make the browser reload every page in the browsing history when the user navigates with the "Back" and "Forward" buttons. This will affect the load on your server(s) — and also the user experience. Do not enable these headers unless you really have to.
+{: .warning }
 
 There are two ways to enable the cache control headers:
 
@@ -39,8 +39,8 @@ In web.config:
 </nwebsec>
 ```
 
-> [!NOTE]
 > Enabling the no cache headers in config is a point of no return, as of NWebsec 3.0.0. This is by design after the PreSendRequestHeaders event was [deprecated by MSFT](http://www.asp.net/aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet,-and-what-to-do-instead#presend). If you want to enable these headers globally for your app but make exceptions for some of your controllers/actions, use a global MVC filter instead, as per the following example.
+{: .note }
 
 Or as an MVC filter:
 

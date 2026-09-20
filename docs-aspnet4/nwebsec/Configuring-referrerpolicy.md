@@ -10,8 +10,8 @@ The referer (sic) request header sent by the browsers whenever you follow a link
 
 The Referrer Policy specification is under development at the time of writing, you can track the progress here: [Referrer policy spec](http://www.w3.org/TR/referrer-policy/).
 
-> [!NOTE]
 > Initial browser support for referrer policy is through a meta tag. There have been changes to the policy keywords in the spec, which means that some browsers need to "catch up" with the spec. Chrome and Firefox are up to date per October 2015. Edge supports the old keywords in the spec and needs to catch up.
+{: .note }
 
 NWebsec provides an HtmlHelper that lets you generate a meta tag with the referrer policy.
 
@@ -79,8 +79,8 @@ The resulting meta tag is:
 
 *unsafe-url* intructs the browser to include the full referer header all navigations/resource loads.
 
-> [!WARNING]
 > This setting will make the browser share referrer information in more situations than with the default browser behaviour. Use this setting only after careful consideration of the privacy implications for your users.
+{: .warning }
 
 ```csharp
 @Html.ReferrerPolicyMetaTag(policy => policy.OriginWhenCrossOrigin)
