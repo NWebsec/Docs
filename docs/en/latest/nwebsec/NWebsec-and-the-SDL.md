@@ -7,7 +7,7 @@ nav_order: 6
 
 You might be familiar with Microsoft's [Security Development Lifecycle](http://microsoft.com/sdl) (SDL) — a software security assurance process. The SDL is how Microsoft ensures that security is taken care of throughout their development processes. It's broken down in sections for different development phases and each section contains requirements and recommendations to ensure both security and privacy in their software. They've published the process guidance to aid others in introducing security activities in their own development processes.
 
-Many of the requirements and recommendations are concrete and actionable — this page lists the SDL requirements that NWebsec will help you fulfill (the others you'll have to take care of yourself \#kthxbai :).
+Many of the requirements and recommendations are concrete and actionable — this page lists the SDL requirements that NWebsec will help you fulfill.
 
 These requirements are from the *SDL Process Guidance Version 5.2 released May 23, 2012*.
 
