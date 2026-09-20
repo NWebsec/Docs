@@ -1,0 +1,32 @@
+// Softer callout colors for dark mode.
+//
+// just-the-docs always renders a callout's border-left accent and title
+// text in the "-300" (darkest/most saturated) shade of its configured
+// color, regardless of color_scheme or callouts_level -- there's no way
+// to tune that via _config.yml alone. On our near-black background
+// ($grey-dk-300, #27262b) that makes $red-300 (#dd2e2e) glaringly vivid
+// and $blue-300 (#183385) nearly invisible. Override with a warmer,
+// still-clearly-red-100, and reuse the exact blue already used site-wide
+// for links (proven comfortable against this background) for notes.
+.warning,
+blockquote.warning,
+p.warning {
+  border-color: $red-100;
+  border-left-color: $red-100;
+
+  &::before {
+    color: $red-100;
+  }
+}
+
+.note,
+blockquote.note,
+p.note {
+  $note-color: lighten($blue-000, 10%);
+  border-color: $note-color;
+  border-left-color: $note-color;
+
+  &::before {
+    color: $note-color;
+  }
+}
