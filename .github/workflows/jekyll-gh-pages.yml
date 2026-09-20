@@ -16,6 +16,8 @@ on:
     paths:
       - "docs/**"
       - "docs-aspnet4/**"
+      - "docs-sessionsecurity/**"
+      - "docs-azurestartuptasks/**"
       - ".github/workflows/jekyll-gh-pages.yml"
 
   # Allows you to run this workflow manually from the Actions tab
@@ -97,13 +99,79 @@ jobs:
           path: docs-aspnet4/_site
           retention-days: 1
 
-  # Combine both builds into one artifact tree. GitHub Pages only accepts one
+  # Build the NWebsec.SessionSecurity docs (docs-sessionsecurity/) as a fully
+  # separate Jekyll site/build, published under the old readthedocs
+  # "subprojects" style path for this project, with its own sidebar nav.
+  build-sessionsecurity:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: docs-sessionsecurity
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+          working-directory: docs-sessionsecurity
+      - name: Build with Jekyll
+        # Served at docs.nwebsec.com/projects/SessionSecurity/en/latest/, not
+        # the domain apex, so baseurl must be non-empty here.
+        run: bundle exec jekyll build --baseurl "/projects/SessionSecurity/en/latest"
+        env:
+          JEKYLL_ENV: production
+      - name: Upload sessionsecurity site build
+        uses: actions/upload-artifact@v5
+        with:
+          name: site-sessionsecurity
+          path: docs-sessionsecurity/_site
+          retention-days: 1
+
+  # Build the NWebsec.AzureStartupTasks docs (docs-azurestartuptasks/) as a
+  # fully separate Jekyll site/build, published under the old readthedocs
+  # "subprojects" style path for this project, with its own sidebar nav.
+  build-azurestartuptasks:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: docs-azurestartuptasks
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+          working-directory: docs-azurestartuptasks
+      - name: Build with Jekyll
+        # Served at docs.nwebsec.com/projects/AzureStartupTasks/en/latest/,
+        # not the domain apex, so baseurl must be non-empty here.
+        run: bundle exec jekyll build --baseurl "/projects/AzureStartupTasks/en/latest"
+        env:
+          JEKYLL_ENV: production
+      - name: Upload azurestartuptasks site build
+        uses: actions/upload-artifact@v5
+        with:
+          name: site-azurestartuptasks
+          path: docs-azurestartuptasks/_site
+          retention-days: 1
+
+  # Combine all builds into one artifact tree. GitHub Pages only accepts one
   # deploy artifact per run, and Jekyll's baseurl only affects generated links,
-  # not physical output location -- so build-aspnet4's output (flat at its own
-  # _site root) must be explicitly placed under en/aspnet4/ here.
+  # not physical output location -- so each secondary build's output (flat at
+  # its own _site root) must be explicitly placed at the right path here.
   combine:
     runs-on: ubuntu-latest
-    needs: [build-main, build-aspnet4]
+    needs:
+      [
+        build-main,
+        build-aspnet4,
+        build-sessionsecurity,
+        build-azurestartuptasks,
+      ]
     steps:
       - name: Download main site build
         uses: actions/download-artifact@v5
@@ -115,6 +183,16 @@ jobs:
         with:
           name: site-aspnet4
           path: _combined/en/aspnet4
+      - name: Download sessionsecurity site build into projects/SessionSecurity/en/latest/
+        uses: actions/download-artifact@v5
+        with:
+          name: site-sessionsecurity
+          path: _combined/projects/SessionSecurity/en/latest
+      - name: Download azurestartuptasks site build into projects/AzureStartupTasks/en/latest/
+        uses: actions/download-artifact@v5
+        with:
+          name: site-azurestartuptasks
+          path: _combined/projects/AzureStartupTasks/en/latest
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload combined artifact
