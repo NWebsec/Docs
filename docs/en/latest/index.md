@@ -26,13 +26,13 @@ Documentation for these packages is maintained separately as the [aspnet4 versio
 
 There's also a dedicated session security library documented as a separate project.
 
-- [NWebsec.SessionSecurity](https://nuget.org/packages/NWebsec.SessionSecurity/) / [documentation](http://docs.nwebsec.com/projects/SessionSecurity/en/latest/).
+- [NWebsec.SessionSecurity](https://nuget.org/packages/NWebsec.SessionSecurity/) / [documentation](/projects/SessionSecurity/en/latest/).
 
 ## NWebsec.AzureStartupTasks
 
 In addition to the ASP.NET libraries, there's also a package that helps you harden the TLS configuration for Azure web role instances:
 
-- [NWebsec.AzureStartupTasks](https://nwebsec.readthedocs.io/projects/AzureStartupTasks/en/latest/) / [documentation](https://nwebsec.readthedocs.io/projects/AzureStartupTasks/en/latest/).
+- [NWebsec.AzureStartupTasks](https://nuget.org/packages/NWebsec.AzureStartupTasks/) / [documentation](/projects/AzureStartupTasks/en/latest/).
 
 Learn why you need to harden the default TLS configuration in the blog post [Hardening Windows Server 2008/2012 and Azure SSL/TLS configuration](http://www.dotnetnoob.com/2013/10/hardening-windows-server-20082012-and.html).
 

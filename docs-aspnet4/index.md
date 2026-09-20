@@ -16,8 +16,8 @@ If you're not sure what "security headers" are, check out this blog post: [Secur
 
 There are also two stand-alone libraries. Since they don't follow the versions of the security header libraries, they are documented as separate projects.
 
-- [NWebsec.SessionSecurity](https://nuget.org/packages/NWebsec.SessionSecurity/) - [docs here](http://docs.nwebsec.com/projects/SessionSecurity/en/latest/).
-- [NWebsec.AzureStartupTasks](https://nuget.org/packages/NWebsec.AzureStartupTasks/) - [docs here](http://docs.nwebsec.com/projects/AzureStartupTasks/en/latest/).
+- [NWebsec.SessionSecurity](https://nuget.org/packages/NWebsec.SessionSecurity/) - [docs here](/projects/SessionSecurity/en/latest/).
+- [NWebsec.AzureStartupTasks](https://nuget.org/packages/NWebsec.AzureStartupTasks/) - [docs here](/projects/AzureStartupTasks/en/latest/).
 
 NWebsec.SessionSecurity improves ASP.NET session security. Read more about the improvements in the blog post [Ramping up ASP.NET session security](http://www.dotnetnoob.com/2013/07/ramping-up-aspnet-session-security.html).
 
