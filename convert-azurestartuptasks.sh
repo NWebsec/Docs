@@ -81,6 +81,11 @@ sed -E -i 's#\\\[Windows 8\.1 and Windows Server 2012 R2 Update\\\]\(<(http://su
 # " :" behind in the rendered heading text -- strip it.
 sed -E -i 's/^(Enabled cipher suites \(highest priority first\)): :$/\1:/' "$OUT/TLS-hardening.md"
 
+# ---- fixup: the :doc:`TLS-hardening` link text used the raw RST filename
+# slug since pandoc has no way to know the target's real title -- that only
+# lives in this script's emit_fm call. Patch link text to match.
+sed -E -i 's#\[TLS-hardening\]#[TLS hardening]#' "$ROOT/index.md"
+
 # ---- one-off addition: reciprocal link back to the main NWebsec docs.
 # Plain root-relative path, not a Liquid relative_url filter -- relative_url
 # would prepend this site's own baseurl, producing the wrong nested path.

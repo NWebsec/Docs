@@ -93,6 +93,21 @@ done
 # prepend this site's own baseurl, producing the wrong nested path.
 sed -E -i 's#No\? See :doc:\\`\\` to learn more\.#No? See [NWebsec and the SDL](/en/latest/nwebsec/NWebsec-and-the-SDL.html) to learn more.#' "$ROOT/index.md"
 
+# ---- fixup: :doc:`Target` link text used the raw RST filename slug (e.g.
+# "Configuring-session-security") since pandoc has no way to know a target's
+# real title -- that only lives in this script's emit_fm calls. Patch link
+# text to match.
+fix_doc_text() {
+  local slug="$1" title="$2"
+  SLUG="$slug" TITLE="$title" perl -pi -e '
+    my $slug = $ENV{SLUG};
+    my $title = $ENV{TITLE};
+    s/\[\Q$slug\E\]/[$title]/g;
+  ' "$ROOT/index.md" "$OUT"/*.md
+}
+fix_doc_text "Authenticated-session-identifiers" "Authenticated session identifiers"
+fix_doc_text "Configuring-session-security" "Configuring session security"
+
 # ---- one-off addition: reciprocal link back to the main NWebsec docs.
 # Plain root-relative path, not a Liquid relative_url filter -- relative_url
 # would prepend this site's own baseurl, producing the wrong nested path.

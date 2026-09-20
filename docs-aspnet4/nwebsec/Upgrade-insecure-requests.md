@@ -1,5 +1,5 @@
 ---
-title: "Upgrade-insecure-requests"
+title: "Upgrade insecure requests"
 nav_order: 5
 parent: "Configuration"
 ---
@@ -29,7 +29,7 @@ This lets you gracefully move a legacy site from http to https as browser suppor
 
 ### Strict-Transport-Security
 
-As users are moved to https on your site, the Strict-Transport-Security (HSTS) header can ensure that you keep them there. NWebsec now supports setting the header only for UAs that support `upgrade-insecure-requests`. This HSTS setting is useful in combination with `upgrade-insecure-requests`, see [Configuring-hsts](Configuring-hsts.html) for details.
+As users are moved to https on your site, the Strict-Transport-Security (HSTS) header can ensure that you keep them there. NWebsec now supports setting the header only for UAs that support `upgrade-insecure-requests`. This HSTS setting is useful in combination with `upgrade-insecure-requests`, see [Strict-Transport-Security](Configuring-hsts.html) for details.
 
 ## Configuring Upgrade Insecure Requests
 
@@ -61,6 +61,6 @@ public void Configuration(IAppBuilder app)
 ```
 
 > [!NOTE]
-> Remember to allow "same host redirects" if you're also using [Redirect-validation](Redirect-validation.html).
+> Remember to allow "same host redirects" if you're also using [Redirect validation](Redirect-validation.html).
 >
 > Also note that NWebsec relies on the `Request.IsSecureConnection` for classic ASP.NET and the OWIN request scheme for OWIN apps when determining whether to redirect from http to https. If you are behind a load balancer/reverse proxy that terminates the user's https connection you must ensure that these properties are set correctly.

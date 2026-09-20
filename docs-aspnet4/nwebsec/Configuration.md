@@ -7,7 +7,7 @@ has_children: true
 # Configuration (ASP.NET 4)
 
 
-Those running an older versions should consult [Breaking-changes](Breaking-changes.html) before upgrading major versions.
+Those running an older versions should consult [Breaking changes](Breaking-changes.html) before upgrading major versions.
 
 You're strongly advised to upgrade if you're still running NWebsec 2.x, as you can run into issues with async requests due to changes in ASP.NET.
 

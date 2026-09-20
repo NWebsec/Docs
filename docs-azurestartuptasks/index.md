@@ -18,7 +18,7 @@ You can take advantage of the scripts in several ways:
 - Stand-alone servers
   - Download the package and user the PowerShell scripts directly.
 
-To see how the configuration is hardened, refer to [TLS-hardening](nwebsec/TLS-hardening.html).
+To see how the configuration is hardened, refer to [TLS hardening](nwebsec/TLS-hardening.html).
 
 To learn why you should harden the default TLS configuration, see the blog post: [Hardening Windows Server 2008/2012 and Azure SSL/TLS configuration](http://www.dotnetnoob.com/2013/10/hardening-windows-server-20082012-and.html).
 

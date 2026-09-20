@@ -21,7 +21,7 @@ You need to take care of the encryption by running your web application over TLS
 
 > Authentication events must invalidate unauthenticated sessions and create a new session identifier.
 
-\[\[NWebsec.SessionSecurity\]\] ensures that unauthenticated sessions IDs aren't reused for authenticated sessions and prevents session fixation attacks through the means of \[\[Authenticated session identifiers\]\].
+[NWebsec.SessionSecurity](/projects/SessionSecurity/en/latest/) ensures that unauthenticated sessions IDs aren't reused for authenticated sessions and prevents session fixation attacks through the means of [Authenticated session identifiers](/projects/SessionSecurity/en/latest/nwebsec/Authenticated-session-identifiers.html).
 
 ## The X-Download-Options header
 
@@ -29,7 +29,7 @@ From *Phase Two Design, Security Recommendations:*
 
 > Apply no-open header to user-supplied downloadable files. Use the HTTP Header X-Download-Options: noopen for each HTTP file download response that may contain user-controllable content. Recommended tool: Casaba Passive Security Auditor.
 
-See [Configuring-xdo](Configuring-xdo.html) to let NWebsec add this header for you.
+See [X-Download-Options](Configuring-xdo.html) to let NWebsec add this header for you.
 
 ## The X-Content-Type-Options header
 
@@ -37,7 +37,7 @@ From *Phase Three Implementation. Security Requirements:*
 
 > Internet Explorer 8 MIME handling: Sniffing OPT-OUT. This recommendation addresses functionality new in Internet Explorer 8 that may have security implications in some cases. It is recommended that for each HTTP response that could contain user controllable content, you utilize the HTTP Header X-Content-Type-Options:nosniff. The [Watcher tool](http://websecuritytool.codeplex.com/) may be of use in meeting this requirement.
 
-See [Configuring-cto](Configuring-cto.html) to let NWebsec add this header for you.
+See [X-Content-Type-Options](Configuring-cto.html) to let NWebsec add this header for you.
 
 ## The Content-Security-Policy header
 
@@ -45,7 +45,7 @@ From *Phase Three Implementation. Security Recommendations:*
 
 > Do not use the JavaScript eval() function (or equivalents). The JavaScript eval() function is used to interpret a string as executable code. While eval() enables a web application to dynamically generate and execute JavaScript (including JSON), it also opens up potential security holes, such as injection attacks, where an attacker-fed string may also get executed. For this reason, the eval() function or functional equivalents, such as setTimeout() and setInterval(), should not be used.
 
-See [Configuring-csp](Configuring-csp.html) to let NWebsec add this header for you — CSP will disable all these JavaScript functions (see the *script-src* directive in section 4.2 of the [CSP specification](http://www.w3.org/TR/CSP/#script-src)).
+See [Content-Security-Policy](Configuring-csp.html) to let NWebsec add this header for you — CSP will disable all these JavaScript functions (see the *script-src* directive in section 4.2 of the [CSP specification](http://www.w3.org/TR/CSP/#script-src)).
 
 ## The X-Frame-Options header
 
@@ -56,7 +56,7 @@ From *Phase Three Implementation. Security Recommendations:*
 > 1.  A "frame-breaker" script is included in each authenticated page to prevent unintentionally framing.
 > 2.  The X-FRAME-OPTIONS header has been added to all authenticated page HTTP responses that should not be framed (for example, DENY) or is utilized to only allow trusted sites to frame site content (for example, the current site with the use of SAMEORIGIN).
 
-See [Configuring-xfo](Configuring-xfo.html) to let NWebsec add this header for you. Also remember that you need to take care of the "frame-breaker" script to fully meet this requirement.
+See [X-Frame-Options](Configuring-xfo.html) to let NWebsec add this header for you. Also remember that you need to take care of the "frame-breaker" script to fully meet this requirement.
 
 ## Redirect validation
 
@@ -64,4 +64,4 @@ From *Phase Three Implementation. Security Requirements:*
 
 > Safe redirect, online only. Automatically redirecting the user (through Response.Redirect, for example) to any arbitrary location specified in the request (such as a query string parameter) could open the user to phishing attacks. Therefore, it is recommended that you not allow HTTP redirects to arbitrary user-defined domains.
 
-See [Redirect-validation](Redirect-validation.html) to add enable the NWebsec safety net for unvalidated redirect vulnerabilities.
+See [Redirect validation](Redirect-validation.html) to add enable the NWebsec safety net for unvalidated redirect vulnerabilities.

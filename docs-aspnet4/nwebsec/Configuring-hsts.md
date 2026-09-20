@@ -12,10 +12,10 @@ There are five configuration options:
 - **includeSubdomains** adds *includeSubDomains* in the header, defaults to *false*
 - **preload** adds the *preload* directive, defaults to *false*. Max-age must be at least 18 weeks, and includeSubdomains must be enabled to use the preload directive. See the [Chromium HSTS docs](http://www.chromium.org/sts) for details.
 - **httpsOnly** ensures that the HSTS header is set over secure connections only, defaults to *true*.
-- **upgradeInsecureRequests** sets the HSTS header only for UAs that supports [Upgrade-insecure-requests](Upgrade-insecure-requests.html). This setting cannot be combined with **preload**.
+- **upgradeInsecureRequests** sets the HSTS header only for UAs that supports [Upgrade insecure requests](Upgrade-insecure-requests.html). This setting cannot be combined with **preload**.
 
 > [!NOTE]
-> **upgradeInsecureRequests** is intended to be used in combination with the [Upgrade-insecure-requests](Upgrade-insecure-requests.html) CSP directive.
+> **upgradeInsecureRequests** is intended to be used in combination with the [Upgrade insecure requests](Upgrade-insecure-requests.html) CSP directive.
 
 | Configuration | Resulting header |
 |----|----|

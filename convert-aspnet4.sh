@@ -110,7 +110,7 @@ emit_fm "$OUT/Configuring-csp.md" "Content-Security-Policy" 4 "$CFGPARENT"
 assemble "$OUT/Configuring-csp.md"
 
 convert "$SRC/Upgrade-insecure-requests.rst" "$OUT/Upgrade-insecure-requests.md"
-emit_fm "$OUT/Upgrade-insecure-requests.md" "Upgrade-insecure-requests" 5 "$CFGPARENT"
+emit_fm "$OUT/Upgrade-insecure-requests.md" "Upgrade insecure requests" 5 "$CFGPARENT"
 assemble "$OUT/Upgrade-insecure-requests.md"
 
 convert "$SRC/Configuring-hsts.rst" "$OUT/Configuring-hsts.md"
@@ -167,6 +167,34 @@ done
 # the same page; heading_anchors: true (kramdown/just-the-docs) generates the
 # slug #iis-6-or-iis-7-classic-pipeline-mode for that heading.
 sed -E -i 's/`classic-pipeline`/[Classic Pipeline Mode](#iis-6-or-iis-7-classic-pipeline-mode)/' "$OUT/Configuration.md"
+
+# ---- fixup: :doc:`Target` link text used the raw RST filename slug (e.g.
+# "Configuring-csp") since pandoc has no way to know a target's real title --
+# that only lives in this script's emit_fm calls. Patch link text to match.
+fix_doc_text() {
+  local slug="$1" title="$2"
+  SLUG="$slug" TITLE="$title" perl -pi -e '
+    my $slug = $ENV{SLUG};
+    my $title = $ENV{TITLE};
+    s/\[\Q$slug\E\]/[$title]/g;
+  ' "$ROOT/index.md" "$OUT"/*.md
+}
+fix_doc_text "Breaking-changes" "Breaking changes"
+fix_doc_text "Redirect-validation" "Redirect validation"
+fix_doc_text "Configuring-csp" "Content-Security-Policy"
+fix_doc_text "Upgrade-insecure-requests" "Upgrade insecure requests"
+fix_doc_text "Configuring-hsts" "Strict-Transport-Security"
+fix_doc_text "Configuring-xfo" "X-Frame-Options"
+fix_doc_text "Configuring-cto" "X-Content-Type-Options"
+fix_doc_text "Configuring-xdo" "X-Download-Options"
+
+# ---- one-off fixup: point the SessionSecurity/AzureStartupTasks "docs here"
+# links at their internal standalone sites instead of the old external
+# readthedocs URLs baked into source-aspnet4/index.rst.
+sed -E -i \
+  -e 's#\]\(http://docs\.nwebsec\.com/projects/SessionSecurity/en/latest/\)#](/projects/SessionSecurity/en/latest/)#' \
+  -e 's#\]\(http://docs\.nwebsec\.com/projects/AzureStartupTasks/en/latest/\)#](/projects/AzureStartupTasks/en/latest/)#' \
+  "$ROOT/index.md"
 
 # ---- one-off addition: reciprocal link back to the ASP.NET Core docs.
 # Plain root-relative path, not a Liquid relative_url filter -- relative_url

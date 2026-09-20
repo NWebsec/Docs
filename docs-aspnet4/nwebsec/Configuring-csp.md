@@ -6,7 +6,7 @@ parent: "Configuration"
 
 # Configuring Content-Security-Policy
 
-Consult [Breaking-changes](Breaking-changes.html) if you're upgrading to the NWebsec 4.x packages.
+Consult [Breaking changes](Breaking-changes.html) if you're upgrading to the NWebsec 4.x packages.
 
 Content-Security-Policy (CSP) provides a safety net for injection attacks by specifying a whitelist from where various content in a webpage can be loaded from.
 
@@ -58,7 +58,7 @@ CSP 2 also introduces script and style hashes and nonces. You'll find a good wri
 - manifest-src
 - block-all-mixed-content
 
-[Upgrade Insecure Requests](http://www.w3.org/TR/upgrade-insecure-requests/) adds another CSP directive, see [Upgrade-insecure-requests](Upgrade-insecure-requests.html) for details.
+[Upgrade Insecure Requests](http://www.w3.org/TR/upgrade-insecure-requests/) adds another CSP directive, see [Upgrade insecure requests](Upgrade-insecure-requests.html) for details.
 
 To use a directive, it must be configured with at least one source. The standard specifies some special sources.
 
@@ -108,7 +108,7 @@ NWebsec lets you configure these headers independently so you can use one or the
 
 ## Configuring CSP through web.config
 
-You need to enable CSP, here's the relevant configuration line from the NWebsec \[\[Configuration\]\]:
+You need to enable CSP, here's the relevant configuration line from the NWebsec [Configuration](Configuration.html):
 
 ```xml
 <content-Security-Policy enabled="true">

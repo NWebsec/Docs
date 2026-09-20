@@ -106,7 +106,7 @@ emit_fm "$OUT/Configuring-csp.md" "Content-Security-Policy" 4 "$CFGPARENT"
 assemble "$OUT/Configuring-csp.md"
 
 convert "$SRC/Upgrade-insecure-requests.rst" "$OUT/Upgrade-insecure-requests.md"
-emit_fm "$OUT/Upgrade-insecure-requests.md" "Upgrade-insecure-requests" 5 "$CFGPARENT"
+emit_fm "$OUT/Upgrade-insecure-requests.md" "Upgrade insecure requests" 5 "$CFGPARENT"
 assemble "$OUT/Upgrade-insecure-requests.md"
 
 convert "$SRC/Configuring-hsts.rst" "$OUT/Configuring-hsts.md"
@@ -148,6 +148,37 @@ for f in "$ROOT/index.md" "$OUT"/*.md; do
   # title-reference roles -> emphasis (handles escaped <> inside)
   perl -pi -e 's/<span class="title-ref">(.*?)<\/span>/*$1*/g' "$f"
 done
+
+# ---- fixup: :doc:`Target` link text used the raw RST filename slug (e.g.
+# "Configuring-csp") since pandoc has no way to know a target's real title --
+# that only lives in this script's emit_fm calls. Patch link text to match.
+fix_doc_text() {
+  local slug="$1" title="$2"
+  SLUG="$slug" TITLE="$title" perl -pi -e '
+    my $slug = $ENV{SLUG};
+    my $title = $ENV{TITLE};
+    s/\[\Q$slug\E\]/[$title]/g;
+  ' "$ROOT/index.md" "$OUT"/*.md
+}
+fix_doc_text "Redirect-validation" "Redirect validation"
+fix_doc_text "Configuring-csp" "Content-Security-Policy"
+fix_doc_text "Upgrade-insecure-requests" "Upgrade insecure requests"
+fix_doc_text "Configuring-hsts" "Strict-Transport-Security"
+fix_doc_text "Configuring-xfo" "X-Frame-Options"
+fix_doc_text "Configuring-cto" "X-Content-Type-Options"
+fix_doc_text "Configuring-xdo" "X-Download-Options"
+
+# ---- one-off fixup: point the aspnet4/SessionSecurity/AzureStartupTasks
+# cross-links at their internal standalone sites instead of the old external
+# readthedocs URLs baked into source/index.rst. The AzureStartupTasks nuget
+# link also gets corrected -- the source has it wrongly pointing at
+# readthedocs instead of nuget.org.
+sed -E -i \
+  -e 's#\]\(https://nwebsec\.readthedocs\.io/en/aspnet4/\)#](/en/aspnet4/)#' \
+  -e 's#\]\(http://docs\.nwebsec\.com/projects/SessionSecurity/en/latest/\)#](/projects/SessionSecurity/en/latest/)#' \
+  -e 's#\[NWebsec\.AzureStartupTasks\]\(https://nwebsec\.readthedocs\.io/projects/AzureStartupTasks/en/latest/\)#[NWebsec.AzureStartupTasks](https://nuget.org/packages/NWebsec.AzureStartupTasks/)#' \
+  -e 's#\[documentation\]\(https://nwebsec\.readthedocs\.io/projects/AzureStartupTasks/en/latest/\)#[documentation](/projects/AzureStartupTasks/en/latest/)#' \
+  "$ROOT/index.md"
 
 echo "Done."
 echo "Home:  $ROOT/index.md"

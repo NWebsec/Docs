@@ -117,7 +117,7 @@ NWebsec lets you configure these headers independently so you can use one or the
 Configuring CSP through web.config
 **********************************
 
-You need to enable CSP, here's the relevant configuration line from the NWebsec [[Configuration]]: 
+You need to enable CSP, here's the relevant configuration line from the NWebsec :doc:`Configuration`: 
 
 ..  code-block:: xml
 

@@ -20,7 +20,7 @@ You need to take care of the encryption by running your web application over TLS
 
 	Authentication events must invalidate unauthenticated sessions and create a new session identifier.
 
-[[NWebsec.SessionSecurity]] ensures that unauthenticated sessions IDs aren't reused for authenticated sessions and prevents session fixation attacks through the means of [[Authenticated session identifiers]].
+`NWebsec.SessionSecurity </projects/SessionSecurity/en/latest/>`_ ensures that unauthenticated sessions IDs aren't reused for authenticated sessions and prevents session fixation attacks through the means of `Authenticated session identifiers </projects/SessionSecurity/en/latest/nwebsec/Authenticated-session-identifiers.html>`_.
 
 *****************************
 The X-Download-Options header

@@ -6,7 +6,7 @@ parent: "Authenticated session identifiers"
 
 # AuthenticatedSessionIDManager
 
-The **NWebsec.SessionSecurity** library includes the **AuthenticatedSessionIDManager** which manages [Authenticated-session-identifiers](Authenticated-session-identifiers.html). Here are the nitty gritty details on how it works and an account of its security properties.
+The **NWebsec.SessionSecurity** library includes the **AuthenticatedSessionIDManager** which manages [Authenticated session identifiers](Authenticated-session-identifiers.html). Here are the nitty gritty details on how it works and an account of its security properties.
 
 ## Authenticated session IDs
 

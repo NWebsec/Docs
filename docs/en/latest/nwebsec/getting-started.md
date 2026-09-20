@@ -33,7 +33,7 @@ To avoid various attacks carried out through iframes, the *X-Frame-Options heade
 
 For applications that run over SSL/TLS, you should most definitely employ the *Strict-Transport-Security header* — instructing the browser to interact with anything on your domain over a secured connection only.
 
-Unless your application needs to redirect users to arbitrary sites on the internet, you'd want *redirect validation* enabled. There might be a few sites you'd want to whitelist for redirects, in particular if you use WIF or Google/Facebook/any other external authentication provider. Consult [Redirect-validation](Redirect-validation.html) if you run into trouble.
+Unless your application needs to redirect users to arbitrary sites on the internet, you'd want *redirect validation* enabled. There might be a few sites you'd want to whitelist for redirects, in particular if you use WIF or Google/Facebook/any other external authentication provider. Consult [Redirect validation](Redirect-validation.html) if you run into trouble.
 
 So, for an application running over http the following is a reasonable starting point for based on the *Startup.cs* from the ASP.NET Core MVC webapp template:
 
@@ -120,6 +120,6 @@ NWebsec lets you add other security headers as well, but these are more tightly 
 - [Using Content Security Policy to Prevent Cross-Site Scripting (XSS)](https://blog.sendsafely.com/post/42277333593/using-content-security-policy-to-prevent-cross-site)
 - [Retrofitting Code for Content Security Policy](https://blog.sendsafely.com/post/50303516209/retrofitting-code-for-content-security-policy)
 
-See [Configuring-csp](Configuring-csp.html) to learn how to enable CSP, this is where the real job starts. Good luck! :)
+See [Content-Security-Policy](Configuring-csp.html) to learn how to enable CSP, this is where the real job starts. Good luck! :)
 
 Note also that security headers can be enabled through MVC attributes, refer to [NWebsec.AspNetCore.Mvc](NWebsec.AspNetCore.Mvc.html) for details.

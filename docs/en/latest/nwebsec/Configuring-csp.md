@@ -51,7 +51,7 @@ CSP 2 also introduces script and style hashes and nonces. You'll find a good wri
 - block-all-mixed-content
 - strict-dynamic
 
-[Upgrade Insecure Requests](https://www.w3.org/TR/upgrade-insecure-requests/) adds another CSP directive, see [Upgrade-insecure-requests](Upgrade-insecure-requests.html) for details.
+[Upgrade Insecure Requests](https://www.w3.org/TR/upgrade-insecure-requests/) adds another CSP directive, see [Upgrade insecure requests](Upgrade-insecure-requests.html) for details.
 
 To use a directive, it must be configured with at least one source. The standard specifies some special sources.
 
