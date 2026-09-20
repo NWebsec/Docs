@@ -66,11 +66,11 @@ To use a directive, it must be configured with at least one source. The standard
 
 You can also specify your own sources, in various formats specified by the [standard](https://www.w3.org/TR/CSP2/#source-list-syntax). Here are a few examples.
 
-- \* — Allow content from anywhere
-- https: — Scheme only, load only content served over https
-- \*.nwebsec.com — Wildcard host, allow content from any nwebsec.com sub-domain.
-- www.nwebsec.com:81 — You can specify a port number
-- <https://www.nwebsec.com> — You can of specify an absolute URI for a host (path has no effect though)
+- *\** — Allow content from anywhere
+- *https:* — Scheme only, load only content served over https
+- *\*.nwebsec.com* — Wildcard host, allow content from any nwebsec.com sub-domain.
+- *www.nwebsec.com:81* — You can specify a port number
+- *https://www.nwebsec.com* — You can of specify an absolute URI for a host (path has no effect though)
 
 NWebsec validates the configured sources and will let you know if something is wrong.
 

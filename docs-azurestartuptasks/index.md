@@ -6,7 +6,7 @@ nav_order: 1
 # NWebsec - TLS hardening for Azure web roles
 
 
-NWebsec.AzureStartupTasks provides an Azure startup task to harden the TLS configuration of Azure instances. Note that the startup tasks are built for [Azure cloud services](http://www.windowsazure.com/en-us/services/cloud-services/), they are not suitable for [Azure websites](http://www.windowsazure.com/en-us/services/web-sites/).
+NWebsec.AzureStartupTasks provides an Azure startup task to harden the TLS configuration of Azure instances. Note that the startup tasks are built for Azure cloud services, they are not suitable for Azure websites.
 
 You'll find the library on NuGet: [NWebsec.AzureStartupTasks](http://nuget.org/packages/NWebsec.AzureStartupTasks/). You can also get it under [Releases](https://github.com/NWebsec/NWebsec.AzureStartupTasks/releases) over at GitHub.
 
