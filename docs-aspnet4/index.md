@@ -23,9 +23,7 @@ NWebsec.SessionSecurity improves ASP.NET session security. Read more about the i
 
 [NWebsec.AzureStartupTasks](https://github.com/NWebsec/NWebsec.AzureStartupTasks/wiki) helps you harden the TLS configuration for Azure web role instances. Learn why you need to harden the default TLS configuration in the blog post [Hardening Windows Server 2008/2012 and Azure SSL/TLS configuration](http://www.dotnetnoob.com/2013/10/hardening-windows-server-20082012-and.html).
 
-Check out the [NWebsec demo site](http://www.nwebsec.com/) to see the headers and session security improvements in action.
-
-To keep up with new releases or to give feedback, find [@NWebsec](https://twitter.com/NWebsec) on Twitter. You can also get in touch at nwebsec (at) nwebsec (dot) com.
+To keep up with new releases or to give feedback, find [@NWebsec](https://x.com/NWebsec) on X.
 
 ## Looking for the ASP.NET Core docs?
 

@@ -28,6 +28,4 @@ There's also a dedicated session security library documented as a separate proje
 
 - [NWebsec.SessionSecurity](https://nuget.org/packages/NWebsec.SessionSecurity/) / [documentation](/projects/SessionSecurity/en/latest/).
 
-Check out the [NWebsec demo site](http://www.nwebsec.com/) to see the headers and session security improvements in action.
-
-To keep up with new releases or to give feedback, find [@NWebsec](https://twitter.com/NWebsec) on Twitter. You can also get in touch at nwebsec (at) nwebsec (dot) com.
+To keep up with new releases or to give feedback, find [@NWebsec](https://x.com/NWebsec) on X.
